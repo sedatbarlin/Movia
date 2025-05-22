@@ -9,9 +9,11 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
+    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
+    @State private var shouldNavigate = false
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 16) {
                 InputTextField(
                     placeholder: Strings.email,
@@ -41,15 +43,25 @@ struct LoginView: View {
                 ) {
                     viewModel.login()
                 }
+                .onChange(of: isLoggedIn) { _, newValue in
+                    if newValue {
+                        shouldNavigate = true
+                    }
+                }
 
                 Spacer()
 
-                NavigationLink(Strings.toRegister, destination: RegisterView())
-                    .padding(.top, 24)
+                NavigationLink(destination: RegisterView()) {
+                    Text(Strings.toRegister)
+                }
+                .padding(.top, 24)
             }
             .padding()
             .navigationTitle(Strings.loginTitle)
             .hideKeyboardOnTap()
+            .navigationDestination(isPresented: $shouldNavigate) {
+                HomeView()
+            }
         }
     }
 }

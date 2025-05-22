@@ -42,6 +42,7 @@ class LoginViewModel: ObservableObject {
             case .success(let response):
                 print("Login message: \(response.message ?? "")")
                 print("Login success: user=\(response.user), token=\(response.token ?? "")")
+                UserDefaults.standard.set(true, forKey: "isLoggedIn")
             case .failure(let error):
                 print("Login failed: \(error.localizedDescription)")
                 if case let .custom(message) = error {

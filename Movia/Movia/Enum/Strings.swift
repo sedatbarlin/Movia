@@ -6,19 +6,27 @@
 //
 
 enum Strings {
-    static let name = "Ad"
-    static let surname = "Soyad"
+    static let name = "Name"
+    static let surname = "Surname"
     static let email = "Email"
-    static let password = "Şifre"
+    static let password = "Password"
     
-    static let login = "Giriş Yap"
-    static let register = "Kayıt Ol"
-    static let toRegister = "Hesabın yok mu? Kayıt Ol"
+    static let login = "Login"
+    static let register = "Register"
+    static let toRegister = "Don't have an account? Sign up"
     
-    static let loginTitle = "Giriş Yap"
-    static let registerTitle = "Kayıt Ol"
+    static let loginTitle = "Login"
+    static let registerTitle = "Register"
     
-    static let atLeastOneBig = "En az 1 büyük harf"
-    static let atLeastOneFigure = "En az 1 rakam"
-    static let atLeast8Characters = "En az 8 karakter"
+    static let atLeastOneBig = "At least 1 capital letter"
+    static let atLeastOneFigure = "At least 1 digit"
+    static let atLeast8Characters = "At least 8 characters"
+    
+    static let movies = "Movies"
+    static let tryAgain = "Try Again"
+    static let year = "Year"
+    static let category = "Category"
+    static let imdb = "IMDB"
+    static let actors = "Actors"
+    static let description = "Description"
 }
