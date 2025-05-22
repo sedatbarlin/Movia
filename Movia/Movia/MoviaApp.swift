@@ -11,7 +11,7 @@ import SwiftUI
 struct MoviaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView()
         }
     }
 }

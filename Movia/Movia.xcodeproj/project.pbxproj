@@ -6,6 +6,25 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		AFA8CA3D2DDF43EB00CAF42B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA3A2DDF43EB00CAF42B /* ContentView.swift */; };
+		AFA8CA3E2DDF43EB00CAF42B /* MoviaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA3B2DDF43EB00CAF42B /* MoviaApp.swift */; };
+		AFA8CA3F2DDF43EB00CAF42B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA8CA372DDF43EB00CAF42B /* Preview Assets.xcassets */; };
+		AFA8CA402DDF43EB00CAF42B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA8CA392DDF43EB00CAF42B /* Assets.xcassets */; };
+		AFA8CA472DDF446000CAF42B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA462DDF446000CAF42B /* LoginView.swift */; };
+		AFA8CA492DDF446E00CAF42B /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA482DDF446E00CAF42B /* RegisterView.swift */; };
+		AFA8CA4C2DDF448B00CAF42B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA4B2DDF448B00CAF42B /* LoginViewModel.swift */; };
+		AFA8CA4E2DDF449400CAF42B /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA4D2DDF449400CAF42B /* RegisterViewModel.swift */; };
+		AFA8CA502DDF44A600CAF42B /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA4F2DDF44A600CAF42B /* InputTextField.swift */; };
+		AFA8CA522DDF44B300CAF42B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA512DDF44B300CAF42B /* User.swift */; };
+		AFA8CA542DDF471E00CAF42B /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA532DDF471E00CAF42B /* MainButton.swift */; };
+		AFA8CA562DDF4B4100CAF42B /* PasswordRulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA552DDF4B4100CAF42B /* PasswordRulesView.swift */; };
+		AFA8CA582DDF4C1800CAF42B /* EmailRulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA572DDF4C1800CAF42B /* EmailRulesView.swift */; };
+		AFA8CA5B2DDF5F6500CAF42B /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA5A2DDF5F6500CAF42B /* View+Ext.swift */; };
+		AFA8CA5F2DDF613100CAF42B /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA5E2DDF613100CAF42B /* LoginState.swift */; };
+		AFA8CA612DDF614200CAF42B /* RegisterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA602DDF614200CAF42B /* RegisterState.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		AFA8C9DA2DDF3A2A00CAF42B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,14 +46,25 @@
 		AFA8C9C92DDF3A2800CAF42B /* Movia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA8C9D92DDF3A2A00CAF42B /* MoviaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA8C9E32DDF3A2A00CAF42B /* MoviaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFA8CA372DDF43EB00CAF42B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AFA8CA392DDF43EB00CAF42B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AFA8CA3A2DDF43EB00CAF42B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AFA8CA3B2DDF43EB00CAF42B /* MoviaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviaApp.swift; sourceTree = "<group>"; };
+		AFA8CA462DDF446000CAF42B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		AFA8CA482DDF446E00CAF42B /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		AFA8CA4B2DDF448B00CAF42B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		AFA8CA4D2DDF449400CAF42B /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		AFA8CA4F2DDF44A600CAF42B /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
+		AFA8CA512DDF44B300CAF42B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AFA8CA532DDF471E00CAF42B /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
+		AFA8CA552DDF4B4100CAF42B /* PasswordRulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRulesView.swift; sourceTree = "<group>"; };
+		AFA8CA572DDF4C1800CAF42B /* EmailRulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailRulesView.swift; sourceTree = "<group>"; };
+		AFA8CA5A2DDF5F6500CAF42B /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		AFA8CA5E2DDF613100CAF42B /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
+		AFA8CA602DDF614200CAF42B /* RegisterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		AFA8C9CB2DDF3A2800CAF42B /* Movia */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Movia;
-			sourceTree = "<group>";
-		};
 		AFA8C9DC2DDF3A2A00CAF42B /* MoviaTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = MoviaTests;
@@ -75,7 +105,7 @@
 		AFA8C9C02DDF3A2800CAF42B = {
 			isa = PBXGroup;
 			children = (
-				AFA8C9CB2DDF3A2800CAF42B /* Movia */,
+				AFA8CA3C2DDF43EB00CAF42B /* Movia */,
 				AFA8C9DC2DDF3A2A00CAF42B /* MoviaTests */,
 				AFA8C9E62DDF3A2A00CAF42B /* MoviaUITests */,
 				AFA8C9CA2DDF3A2800CAF42B /* Products */,
@@ -92,6 +122,109 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		AFA8CA382DDF43EB00CAF42B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CA372DDF43EB00CAF42B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AFA8CA3C2DDF43EB00CAF42B /* Movia */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CA382DDF43EB00CAF42B /* Preview Content */,
+				AFA8CA592DDF5F4A00CAF42B /* Extensions */,
+				AFA8CA442DDF441700CAF42B /* Models */,
+				AFA8CA412DDF43EF00CAF42B /* Views */,
+				AFA8CA422DDF440000CAF42B /* ViewModels */,
+				AFA8CA432DDF440B00CAF42B /* Components */,
+				AFA8CA392DDF43EB00CAF42B /* Assets.xcassets */,
+				AFA8CA3A2DDF43EB00CAF42B /* ContentView.swift */,
+				AFA8CA3B2DDF43EB00CAF42B /* MoviaApp.swift */,
+			);
+			path = Movia;
+			sourceTree = "<group>";
+		};
+		AFA8CA412DDF43EF00CAF42B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CA5D2DDF610600CAF42B /* Register */,
+				AFA8CA452DDF444F00CAF42B /* Login */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AFA8CA422DDF440000CAF42B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CA5C2DDF60ED00CAF42B /* Register */,
+				AFA8CA4A2DDF447F00CAF42B /* Login */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		AFA8CA432DDF440B00CAF42B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CA4F2DDF44A600CAF42B /* InputTextField.swift */,
+				AFA8CA532DDF471E00CAF42B /* MainButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		AFA8CA442DDF441700CAF42B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CA512DDF44B300CAF42B /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AFA8CA452DDF444F00CAF42B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CA462DDF446000CAF42B /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		AFA8CA4A2DDF447F00CAF42B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CA4B2DDF448B00CAF42B /* LoginViewModel.swift */,
+				AFA8CA5E2DDF613100CAF42B /* LoginState.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		AFA8CA592DDF5F4A00CAF42B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CA5A2DDF5F6500CAF42B /* View+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AFA8CA5C2DDF60ED00CAF42B /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CA4D2DDF449400CAF42B /* RegisterViewModel.swift */,
+				AFA8CA602DDF614200CAF42B /* RegisterState.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		AFA8CA5D2DDF610600CAF42B /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CA482DDF446E00CAF42B /* RegisterView.swift */,
+				AFA8CA552DDF4B4100CAF42B /* PasswordRulesView.swift */,
+				AFA8CA572DDF4C1800CAF42B /* EmailRulesView.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +239,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				AFA8C9CB2DDF3A2800CAF42B /* Movia */,
 			);
 			name = Movia;
 			packageProductDependencies = (
@@ -212,6 +342,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFA8CA3F2DDF43EB00CAF42B /* Preview Assets.xcassets in Resources */,
+				AFA8CA402DDF43EB00CAF42B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +368,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFA8CA472DDF446000CAF42B /* LoginView.swift in Sources */,
+				AFA8CA4E2DDF449400CAF42B /* RegisterViewModel.swift in Sources */,
+				AFA8CA542DDF471E00CAF42B /* MainButton.swift in Sources */,
+				AFA8CA562DDF4B4100CAF42B /* PasswordRulesView.swift in Sources */,
+				AFA8CA612DDF614200CAF42B /* RegisterState.swift in Sources */,
+				AFA8CA5F2DDF613100CAF42B /* LoginState.swift in Sources */,
+				AFA8CA492DDF446E00CAF42B /* RegisterView.swift in Sources */,
+				AFA8CA582DDF4C1800CAF42B /* EmailRulesView.swift in Sources */,
+				AFA8CA3D2DDF43EB00CAF42B /* ContentView.swift in Sources */,
+				AFA8CA522DDF44B300CAF42B /* User.swift in Sources */,
+				AFA8CA5B2DDF5F6500CAF42B /* View+Ext.swift in Sources */,
+				AFA8CA4C2DDF448B00CAF42B /* LoginViewModel.swift in Sources */,
+				AFA8CA502DDF44A600CAF42B /* InputTextField.swift in Sources */,
+				AFA8CA3E2DDF43EB00CAF42B /* MoviaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
