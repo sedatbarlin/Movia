@@ -23,6 +23,14 @@
 		AFA8CA5B2DDF5F6500CAF42B /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA5A2DDF5F6500CAF42B /* View+Ext.swift */; };
 		AFA8CA5F2DDF613100CAF42B /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA5E2DDF613100CAF42B /* LoginState.swift */; };
 		AFA8CA612DDF614200CAF42B /* RegisterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA602DDF614200CAF42B /* RegisterState.swift */; };
+		AFA8CA642DDF73EF00CAF42B /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA632DDF73EF00CAF42B /* NetworkError.swift */; };
+		AFA8CA662DDF73FD00CAF42B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA652DDF73FD00CAF42B /* NetworkService.swift */; };
+		AFA8CA682DDF740A00CAF42B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA672DDF740A00CAF42B /* AuthService.swift */; };
+		AFA8CA6A2DDF838400CAF42B /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA692DDF838400CAF42B /* AuthResponse.swift */; };
+		AFA8CA6C2DDF83A000CAF42B /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA6B2DDF83A000CAF42B /* LoginRequest.swift */; };
+		AFA8CA6E2DDF83B000CAF42B /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA6D2DDF83B000CAF42B /* RegisterRequest.swift */; };
+		AFA8CA732DDF85E400CAF42B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA722DDF85E400CAF42B /* Strings.swift */; };
+		AFA8CA752DDF85FF00CAF42B /* IconNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA742DDF85FF00CAF42B /* IconNames.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +70,14 @@
 		AFA8CA5A2DDF5F6500CAF42B /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		AFA8CA5E2DDF613100CAF42B /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
 		AFA8CA602DDF614200CAF42B /* RegisterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterState.swift; sourceTree = "<group>"; };
+		AFA8CA632DDF73EF00CAF42B /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		AFA8CA652DDF73FD00CAF42B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		AFA8CA672DDF740A00CAF42B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		AFA8CA692DDF838400CAF42B /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		AFA8CA6B2DDF83A000CAF42B /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		AFA8CA6D2DDF83B000CAF42B /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
+		AFA8CA722DDF85E400CAF42B /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		AFA8CA742DDF85FF00CAF42B /* IconNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconNames.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -134,8 +150,10 @@
 			isa = PBXGroup;
 			children = (
 				AFA8CA382DDF43EB00CAF42B /* Preview Content */,
+				AFA8CA622DDF73D000CAF42B /* Network */,
 				AFA8CA592DDF5F4A00CAF42B /* Extensions */,
 				AFA8CA442DDF441700CAF42B /* Models */,
+				AFA8CA6F2DDF857E00CAF42B /* Enum */,
 				AFA8CA412DDF43EF00CAF42B /* Views */,
 				AFA8CA422DDF440000CAF42B /* ViewModels */,
 				AFA8CA432DDF440B00CAF42B /* Components */,
@@ -177,6 +195,9 @@
 			isa = PBXGroup;
 			children = (
 				AFA8CA512DDF44B300CAF42B /* User.swift */,
+				AFA8CA692DDF838400CAF42B /* AuthResponse.swift */,
+				AFA8CA6B2DDF83A000CAF42B /* LoginRequest.swift */,
+				AFA8CA6D2DDF83B000CAF42B /* RegisterRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -223,6 +244,25 @@
 				AFA8CA572DDF4C1800CAF42B /* EmailRulesView.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		AFA8CA622DDF73D000CAF42B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CA632DDF73EF00CAF42B /* NetworkError.swift */,
+				AFA8CA652DDF73FD00CAF42B /* NetworkService.swift */,
+				AFA8CA672DDF740A00CAF42B /* AuthService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		AFA8CA6F2DDF857E00CAF42B /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CA722DDF85E400CAF42B /* Strings.swift */,
+				AFA8CA742DDF85FF00CAF42B /* IconNames.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,16 +410,24 @@
 			files = (
 				AFA8CA472DDF446000CAF42B /* LoginView.swift in Sources */,
 				AFA8CA4E2DDF449400CAF42B /* RegisterViewModel.swift in Sources */,
+				AFA8CA6E2DDF83B000CAF42B /* RegisterRequest.swift in Sources */,
+				AFA8CA6C2DDF83A000CAF42B /* LoginRequest.swift in Sources */,
 				AFA8CA542DDF471E00CAF42B /* MainButton.swift in Sources */,
 				AFA8CA562DDF4B4100CAF42B /* PasswordRulesView.swift in Sources */,
+				AFA8CA6A2DDF838400CAF42B /* AuthResponse.swift in Sources */,
 				AFA8CA612DDF614200CAF42B /* RegisterState.swift in Sources */,
 				AFA8CA5F2DDF613100CAF42B /* LoginState.swift in Sources */,
 				AFA8CA492DDF446E00CAF42B /* RegisterView.swift in Sources */,
 				AFA8CA582DDF4C1800CAF42B /* EmailRulesView.swift in Sources */,
 				AFA8CA3D2DDF43EB00CAF42B /* ContentView.swift in Sources */,
+				AFA8CA642DDF73EF00CAF42B /* NetworkError.swift in Sources */,
+				AFA8CA732DDF85E400CAF42B /* Strings.swift in Sources */,
+				AFA8CA662DDF73FD00CAF42B /* NetworkService.swift in Sources */,
+				AFA8CA752DDF85FF00CAF42B /* IconNames.swift in Sources */,
 				AFA8CA522DDF44B300CAF42B /* User.swift in Sources */,
 				AFA8CA5B2DDF5F6500CAF42B /* View+Ext.swift in Sources */,
 				AFA8CA4C2DDF448B00CAF42B /* LoginViewModel.swift in Sources */,
+				AFA8CA682DDF740A00CAF42B /* AuthService.swift in Sources */,
 				AFA8CA502DDF44A600CAF42B /* InputTextField.swift in Sources */,
 				AFA8CA3E2DDF43EB00CAF42B /* MoviaApp.swift in Sources */,
 			);

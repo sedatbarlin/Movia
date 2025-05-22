@@ -18,7 +18,7 @@ struct PasswordRulesView: View {
         VStack(alignment: .leading, spacing: 4) {
             ForEach(rules, id: \.0) { rule, isValid in
                 HStack(spacing: 6) {
-                    Image(systemName: isValid ? "checkmark.circle.fill" : "xmark.circle")
+                    Image(systemName: isValid ? IconNames.valid : IconNames.notValid)
                         .foregroundColor(isValid ? .green : .red)
                     Text(rule)
                         .font(.caption)
@@ -33,9 +33,9 @@ struct PasswordRulesView: View {
 struct PasswordValidator {
     static func validate(password: String) -> [(String, Bool)] {
         return [
-            ("En az 1 büyük harf", password.range(of: "[A-Z]", options: .regularExpression) != nil),
-            ("En az 1 rakam", password.range(of: "[0-9]", options: .regularExpression) != nil),
-            ("En az 8 karakter", password.count >= 8)
+            (Strings.atLeastOneBig, password.range(of: "[A-Z]", options: .regularExpression) != nil),
+            (Strings.atLeastOneFigure, password.range(of: "[0-9]", options: .regularExpression) != nil),
+            (Strings.atLeast8Characters, password.count >= 8)
         ]
     }
 }

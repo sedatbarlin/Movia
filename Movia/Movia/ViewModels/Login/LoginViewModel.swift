@@ -11,13 +11,15 @@ import Foundation
 class LoginViewModel: ObservableObject {
     @Published private(set) var state = LoginState()
     @Published var isFormValid: Bool = false
-    
+
     private var cancellables = Set<AnyCancellable>()
-    
-    init() {
+    private let authService: AuthServiceProtocol
+
+    init(authService: AuthServiceProtocol = AuthService()) {
+        self.authService = authService
         bindValidation()
     }
-    
+
     private func bindValidation() {
         $state
             .map { state in
@@ -27,20 +29,33 @@ class LoginViewModel: ObservableObject {
             .assign(to: \.isFormValid, on: self)
             .store(in: &cancellables)
     }
-    
+
+    func login() {
+        state.isLoading = true
+        let request = LoginRequest(
+            email: state.email,
+            password: state.password
+        )
+        authService.login(request: request) { [weak self] result in
+            self?.state.isLoading = false
+            switch result {
+            case .success(let response):
+                print("Login message: \(response.message ?? "")")
+                print("Login success: user=\(response.user), token=\(response.token ?? "")")
+            case .failure(let error):
+                print("Login failed: \(error.localizedDescription)")
+                if case let .custom(message) = error {
+                    print("Login error message: \(message)")
+                }
+            }
+        }
+    }
+
     func updateEmail(_ email: String) {
         state.email = email
     }
+
     func updatePassword(_ password: String) {
         state.password = password
-    }
-    
-    func login() {
-        state.isLoading = true
-        let user = User(email: state.email, password: state.password)
-        print("Login User: \(user)")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.state.isLoading = false
-        }
     }
 }

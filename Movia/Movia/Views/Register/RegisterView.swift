@@ -13,7 +13,7 @@ struct RegisterView: View {
     var body: some View {
         VStack(spacing: 16) {
             InputTextField(
-                placeholder: "Ad",
+                placeholder: Strings.name,
                 text: Binding(
                     get: { viewModel.state.name },
                     set: { viewModel.updateName($0) }
@@ -22,7 +22,7 @@ struct RegisterView: View {
                 showValidation: true
             )
             InputTextField(
-                placeholder: "Soyad",
+                placeholder: Strings.surname,
                 text: Binding(
                     get: { viewModel.state.surname },
                     set: { viewModel.updateSurname($0) }
@@ -31,7 +31,7 @@ struct RegisterView: View {
                 showValidation: true
             )
             InputTextField(
-                placeholder: "Email",
+                placeholder: Strings.email,
                 text: Binding(
                     get: { viewModel.state.email },
                     set: { viewModel.updateEmail($0) }
@@ -40,7 +40,7 @@ struct RegisterView: View {
                 showValidation: true
             )
             InputTextField(
-                placeholder: "Şifre",
+                placeholder: Strings.password,
                 text: Binding(
                     get: { viewModel.state.password },
                     set: { viewModel.updatePassword($0) }
@@ -51,9 +51,9 @@ struct RegisterView: View {
             )
 
             MainButton(
-                title: "Kayıt Ol",
+                title: Strings.register,
                 backgroundColor: .green,
-                iconName: "person.badge.plus",
+                iconName: IconNames.register,
                 isLoading: viewModel.state.isLoading,
                 isDisabled: !viewModel.isFormValid
             ) {
@@ -63,7 +63,7 @@ struct RegisterView: View {
             Spacer()
         }
         .padding()
-        .navigationTitle("Kayıt Ol")
+        .navigationTitle(Strings.registerTitle)
         .hideKeyboardOnTap()
     }
 }

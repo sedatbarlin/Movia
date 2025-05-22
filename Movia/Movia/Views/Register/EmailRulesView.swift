@@ -21,7 +21,7 @@ struct EmailValidationView: View {
         VStack(alignment: .leading, spacing: 4) {
             ForEach(rules, id: \.0) { rule, isValid in
                 HStack(spacing: 6) {
-                    Image(systemName: isValid ? "checkmark.circle.fill" : "xmark.circle")
+                    Image(systemName: isValid ? IconNames.valid : IconNames.notValid)
                         .foregroundColor(isValid ? .green : .red)
                     Text(rule)
                         .font(.caption)

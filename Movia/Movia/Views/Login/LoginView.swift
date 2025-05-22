@@ -14,7 +14,7 @@ struct LoginView: View {
         NavigationView {
             VStack(spacing: 16) {
                 InputTextField(
-                    placeholder: "Email",
+                    placeholder: Strings.email,
                     text: Binding(
                         get: { viewModel.state.email },
                         set: { viewModel.updateEmail($0) }
@@ -23,7 +23,7 @@ struct LoginView: View {
                     showValidation: false
                 )
                 InputTextField(
-                    placeholder: "Password",
+                    placeholder: Strings.password,
                     text: Binding(
                         get: { viewModel.state.password },
                         set: { viewModel.updatePassword($0) }
@@ -34,8 +34,8 @@ struct LoginView: View {
                 )
 
                 MainButton(
-                    title: "Giriş Yap",
-                    iconName: "arrow.right.circle",
+                    title: Strings.login,
+                    iconName: IconNames.login,
                     isLoading: viewModel.state.isLoading,
                     isDisabled: !viewModel.isFormValid
                 ) {
@@ -44,11 +44,11 @@ struct LoginView: View {
 
                 Spacer()
 
-                NavigationLink("Hesabın yok mu? Kayıt Ol", destination: RegisterView())
+                NavigationLink(Strings.toRegister, destination: RegisterView())
                     .padding(.top, 24)
             }
             .padding()
-            .navigationTitle("Giriş Yap")
+            .navigationTitle(Strings.loginTitle)
             .hideKeyboardOnTap()
         }
     }
