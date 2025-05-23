@@ -12,6 +12,7 @@ struct ProfileView: View {
     @AppStorage("userSurname") private var userSurname: String = ""
     @AppStorage("userEmail") private var userEmail: String = ""
     @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
+    @State private var showingEditProfile = false
     
     var body: some View {
         VStack(spacing: 24) {
@@ -26,6 +27,21 @@ struct ProfileView: View {
                 ProfileInfoRow(title: "Name", value: userName)
                 ProfileInfoRow(title: "Surname", value: userSurname)
                 ProfileInfoRow(title: "Email", value: userEmail)
+            }
+            .padding(.horizontal)
+            
+            Button(action: {
+                showingEditProfile = true
+            }) {
+                HStack {
+                    Image(systemName: "pencil")
+                    Text("Edit Profile")
+                }
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color.blue)
+                .cornerRadius(10)
             }
             .padding(.horizontal)
             
@@ -49,6 +65,9 @@ struct ProfileView: View {
             .padding()
         }
         .navigationTitle("Profile")
+        .sheet(isPresented: $showingEditProfile) {
+            EditProfileView()
+        }
     }
 }
 

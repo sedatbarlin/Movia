@@ -41,6 +41,12 @@
 		AFA8CA8E2DE07A1B00CAF42B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA8D2DE07A1B00CAF42B /* ProfileView.swift */; };
 		AFA8CA912DE07A4900CAF42B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA902DE07A4900CAF42B /* MainTabView.swift */; };
 		AFA8CA932DE080B600CAF42B /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA922DE080B600CAF42B /* LoginResponse.swift */; };
+		AFA8CA952DE0879700CAF42B /* ProfileUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA942DE0879700CAF42B /* ProfileUpdateRequest.swift */; };
+		AFA8CA972DE087B400CAF42B /* ProfileUpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA962DE087B400CAF42B /* ProfileUpdateResponse.swift */; };
+		AFA8CA9A2DE087EE00CAF42B /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA992DE087EE00CAF42B /* EditProfileViewModel.swift */; };
+		AFA8CA9C2DE0880A00CAF42B /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA9B2DE0880A00CAF42B /* EditProfileView.swift */; };
+		AFA8CA9E2DE08B8300CAF42B /* EditProfileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA9D2DE08B8300CAF42B /* EditProfileState.swift */; };
+		AFA8CAA02DE08D4000CAF42B /* HomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA9F2DE08D4000CAF42B /* HomeState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +104,12 @@
 		AFA8CA8D2DE07A1B00CAF42B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		AFA8CA902DE07A4900CAF42B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		AFA8CA922DE080B600CAF42B /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		AFA8CA942DE0879700CAF42B /* ProfileUpdateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateRequest.swift; sourceTree = "<group>"; };
+		AFA8CA962DE087B400CAF42B /* ProfileUpdateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateResponse.swift; sourceTree = "<group>"; };
+		AFA8CA992DE087EE00CAF42B /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		AFA8CA9B2DE0880A00CAF42B /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		AFA8CA9D2DE08B8300CAF42B /* EditProfileState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileState.swift; sourceTree = "<group>"; };
+		AFA8CA9F2DE08D4000CAF42B /* HomeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -200,6 +212,7 @@
 		AFA8CA422DDF440000CAF42B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				AFA8CA982DE087E200CAF42B /* Profile */,
 				AFA8CA7A2DDFC61700CAF42B /* Home */,
 				AFA8CA5C2DDF60ED00CAF42B /* Register */,
 				AFA8CA4A2DDF447F00CAF42B /* Login */,
@@ -226,6 +239,8 @@
 				AFA8CA692DDF838400CAF42B /* AuthResponse.swift */,
 				AFA8CA6B2DDF83A000CAF42B /* LoginRequest.swift */,
 				AFA8CA922DE080B600CAF42B /* LoginResponse.swift */,
+				AFA8CA942DE0879700CAF42B /* ProfileUpdateRequest.swift */,
+				AFA8CA962DE087B400CAF42B /* ProfileUpdateResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -298,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				AFA8CA7B2DDFC62100CAF42B /* HomeViewModel.swift */,
+				AFA8CA9F2DE08D4000CAF42B /* HomeState.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -331,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				AFA8CA8D2DE07A1B00CAF42B /* ProfileView.swift */,
+				AFA8CA9B2DE0880A00CAF42B /* EditProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -341,6 +358,15 @@
 				AFA8CA902DE07A4900CAF42B /* MainTabView.swift */,
 			);
 			path = MainTab;
+			sourceTree = "<group>";
+		};
+		AFA8CA982DE087E200CAF42B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CA992DE087EE00CAF42B /* EditProfileViewModel.swift */,
+				AFA8CA9D2DE08B8300CAF42B /* EditProfileState.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -504,18 +530,24 @@
 				AFA8CA582DDF4C1800CAF42B /* EmailRulesView.swift in Sources */,
 				AFA8CA7F2DDFC64100CAF42B /* HomeView.swift in Sources */,
 				AFA8CA642DDF73EF00CAF42B /* NetworkError.swift in Sources */,
+				AFA8CAA02DE08D4000CAF42B /* HomeState.swift in Sources */,
+				AFA8CA9C2DE0880A00CAF42B /* EditProfileView.swift in Sources */,
 				AFA8CA8E2DE07A1B00CAF42B /* ProfileView.swift in Sources */,
 				AFA8CA732DDF85E400CAF42B /* Strings.swift in Sources */,
 				AFA8CA662DDF73FD00CAF42B /* NetworkService.swift in Sources */,
+				AFA8CA972DE087B400CAF42B /* ProfileUpdateResponse.swift in Sources */,
 				AFA8CA8B2DE07A0300CAF42B /* FavoritesView.swift in Sources */,
 				AFA8CA932DE080B600CAF42B /* LoginResponse.swift in Sources */,
 				AFA8CA752DDF85FF00CAF42B /* IconNames.swift in Sources */,
 				AFA8CA522DDF44B300CAF42B /* User.swift in Sources */,
 				AFA8CA5B2DDF5F6500CAF42B /* View+Ext.swift in Sources */,
 				AFA8CA4C2DDF448B00CAF42B /* LoginViewModel.swift in Sources */,
+				AFA8CA9E2DE08B8300CAF42B /* EditProfileState.swift in Sources */,
 				AFA8CA682DDF740A00CAF42B /* AuthService.swift in Sources */,
+				AFA8CA952DE0879700CAF42B /* ProfileUpdateRequest.swift in Sources */,
 				AFA8CA502DDF44A600CAF42B /* InputTextField.swift in Sources */,
 				AFA8CA862DDFE23200CAF42B /* ImageCache.swift in Sources */,
+				AFA8CA9A2DE087EE00CAF42B /* EditProfileViewModel.swift in Sources */,
 				AFA8CA3E2DDF43EB00CAF42B /* MoviaApp.swift in Sources */,
 				AFA8CA882DDFE25B00CAF42B /* CachedImage.swift in Sources */,
 			);

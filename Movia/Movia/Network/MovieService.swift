@@ -19,10 +19,19 @@ class MovieService: MovieServiceProtocol {
     }
     
     func fetchMovies(completion: @escaping (Result<[Movie], NetworkError>) -> Void) {
+        guard let token = UserDefaults.standard.string(forKey: "userToken") else {
+            completion(.failure(.custom("Token not found")))
+            return
+        }
+        
+        var headers = ["Authorization": "Bearer \(token)"]
+        headers["Content-Type"] = "application/json"
+        
         networkService.request(
             endpoint: "/api/movies",
             method: "GET",
             body: nil,
+            headers: headers,
             completion: completion
         )
     }

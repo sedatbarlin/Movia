@@ -12,6 +12,7 @@ protocol NetworkServiceProtocol {
         endpoint: String,
         method: String,
         body: Data?,
+        headers: [String: String]?,
         completion: @escaping (Result<T, NetworkError>) -> Void
     )
 }
@@ -27,6 +28,7 @@ class NetworkService: NetworkServiceProtocol {
         endpoint: String,
         method: String,
         body: Data?,
+        headers: [String: String]? = nil,
         completion: @escaping (Result<T, NetworkError>) -> Void
     ) {
         guard let url = URL(string: endpoint, relativeTo: baseURL) else {
@@ -38,6 +40,10 @@ class NetworkService: NetworkServiceProtocol {
         request.httpMethod = method
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = body
+        
+        headers?.forEach { key, value in
+            request.setValue(value, forHTTPHeaderField: key)
+        }
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             DispatchQueue.main.async {

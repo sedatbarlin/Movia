@@ -12,11 +12,11 @@ struct HomeView: View {
     
     var body: some View {
         Group {
-            if viewModel.isLoading {
+            if viewModel.state.isLoading {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())
                     .navigationTitle(Strings.movies)
-            } else if let error = viewModel.errorMessage {
+            } else if let error = viewModel.state.errorMessage {
                 VStack {
                     Text(error)
                         .foregroundColor(.red)
@@ -31,7 +31,7 @@ struct HomeView: View {
             } else {
                 ScrollView {
                     LazyVStack(spacing: 0) {
-                        ForEach(viewModel.movies) { movie in
+                        ForEach(viewModel.state.movies) { movie in
                             VStack(spacing: 0) {
                                 NavigationLink(destination: MovieDetailView(movie: movie)) {
                                     MovieRowView(movie: movie)
@@ -39,7 +39,7 @@ struct HomeView: View {
                                 }
                                 .buttonStyle(PlainButtonStyle())
                                 
-                                if movie.id != viewModel.movies.last?.id {
+                                if movie.id != viewModel.state.movies.last?.id {
                                     Divider()
                                         .padding(.leading, 92)
                                 }

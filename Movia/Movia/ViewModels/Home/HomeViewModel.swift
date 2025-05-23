@@ -9,9 +9,7 @@ import Foundation
 
 @MainActor
 class HomeViewModel: ObservableObject {
-    @Published var movies: [Movie] = []
-    @Published var isLoading: Bool = false
-    @Published var errorMessage: String? = nil
+    @Published private(set) var state = HomeState()
     
     private let movieService: MovieServiceProtocol
     
@@ -23,8 +21,8 @@ class HomeViewModel: ObservableObject {
     }
     
     func fetchMovies() async {
-        isLoading = true
-        errorMessage = nil
+        state.isLoading = true
+        state.errorMessage = nil
         
         let result = await withCheckedContinuation { continuation in
             movieService.fetchMovies { result in
@@ -34,11 +32,11 @@ class HomeViewModel: ObservableObject {
         
         switch result {
         case .success(let movies):
-            self.movies = movies
+            state.movies = movies
         case .failure(let error):
-            self.errorMessage = error.localizedDescription
+            state.errorMessage = error.localizedDescription
         }
         
-        isLoading = false
+        state.isLoading = false
     }
 } 
