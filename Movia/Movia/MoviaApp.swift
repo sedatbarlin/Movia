@@ -13,7 +13,7 @@ struct MoviaApp: App {
     var body: some Scene {
         WindowGroup {
             if isLoggedIn {
-                HomeView()
+                MainTabView()
             } else {
                 LoginView()
             }

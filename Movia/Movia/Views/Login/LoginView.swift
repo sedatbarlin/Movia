@@ -60,7 +60,7 @@ struct LoginView: View {
             .navigationTitle(Strings.loginTitle)
             .hideKeyboardOnTap()
             .navigationDestination(isPresented: $shouldNavigate) {
-                HomeView()
+                MainTabView()
             }
         }
     }

@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class HomeViewModel: ObservableObject {
     @Published var movies: [Movie] = []
     @Published var isLoading: Bool = false
@@ -16,21 +17,32 @@ class HomeViewModel: ObservableObject {
     
     init(movieService: MovieServiceProtocol = MovieService()) {
         self.movieService = movieService
+        Task {
+            await fetchMovies()
+        }
     }
     
-    func fetchMovies() {
+    func fetchMovies() async {
         isLoading = true
         errorMessage = nil
-        movieService.fetchMovies { [weak self] result in
-            DispatchQueue.main.async {
-                self?.isLoading = false
-                switch result {
-                case .success(let movies):
-                    self?.movies = movies
-                case .failure(let error):
-                    self?.errorMessage = error.localizedDescription
+        
+        do {
+            let result = await withCheckedContinuation { continuation in
+                movieService.fetchMovies { result in
+                    continuation.resume(returning: result)
                 }
             }
+            
+            switch result {
+            case .success(let movies):
+                self.movies = movies
+            case .failure(let error):
+                self.errorMessage = error.localizedDescription
+            }
+        } catch {
+            self.errorMessage = error.localizedDescription
         }
+        
+        isLoading = false
     }
 } 

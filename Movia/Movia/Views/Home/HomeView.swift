@@ -11,46 +11,43 @@ struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
     
     var body: some View {
-        NavigationView {
-            Group {
-                if viewModel.isLoading {
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle())
-                        .navigationTitle(Strings.movies)
-                } else if let error = viewModel.errorMessage {
-                    VStack {
-                        Text(error)
-                            .foregroundColor(.red)
-                        Button(Strings.tryAgain) {
-                            viewModel.fetchMovies()
-                        }
-                        .padding(.top)
-                    }
+        Group {
+            if viewModel.isLoading {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
                     .navigationTitle(Strings.movies)
-                } else {
-                    ScrollView {
-                        LazyVStack(spacing: 0) {
-                            ForEach(viewModel.movies) { movie in
-                                VStack(spacing: 0) {
-                                    NavigationLink(destination: MovieDetailView(movie: movie)) {
-                                        MovieRowView(movie: movie)
-                                            .contentShape(Rectangle())
-                                    }
-                                    .buttonStyle(PlainButtonStyle())
-                                    
-                                    if movie.id != viewModel.movies.last?.id {
-                                        Divider()
-                                            .padding(.leading, 92)
-                                    }
+            } else if let error = viewModel.errorMessage {
+                VStack {
+                    Text(error)
+                        .foregroundColor(.red)
+                    Button(Strings.tryAgain) {
+                        Task {
+                            await viewModel.fetchMovies()
+                        }
+                    }
+                    .padding(.top)
+                }
+                .navigationTitle(Strings.movies)
+            } else {
+                ScrollView {
+                    LazyVStack(spacing: 0) {
+                        ForEach(viewModel.movies) { movie in
+                            VStack(spacing: 0) {
+                                NavigationLink(destination: MovieDetailView(movie: movie)) {
+                                    MovieRowView(movie: movie)
+                                        .contentShape(Rectangle())
+                                }
+                                .buttonStyle(PlainButtonStyle())
+                                
+                                if movie.id != viewModel.movies.last?.id {
+                                    Divider()
+                                        .padding(.leading, 92)
                                 }
                             }
                         }
                     }
-                    .navigationTitle(Strings.movies)
                 }
-            }
-            .onAppear {
-                viewModel.fetchMovies()
+                .navigationTitle(Strings.movies)
             }
         }
     }

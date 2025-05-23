@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AFA8CA3D2DDF43EB00CAF42B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA3A2DDF43EB00CAF42B /* ContentView.swift */; };
 		AFA8CA3E2DDF43EB00CAF42B /* MoviaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA3B2DDF43EB00CAF42B /* MoviaApp.swift */; };
 		AFA8CA3F2DDF43EB00CAF42B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA8CA372DDF43EB00CAF42B /* Preview Assets.xcassets */; };
 		AFA8CA402DDF43EB00CAF42B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA8CA392DDF43EB00CAF42B /* Assets.xcassets */; };
@@ -38,6 +37,9 @@
 		AFA8CA812DDFD77900CAF42B /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA802DDFD77900CAF42B /* MovieDetailView.swift */; };
 		AFA8CA862DDFE23200CAF42B /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA852DDFE23200CAF42B /* ImageCache.swift */; };
 		AFA8CA882DDFE25B00CAF42B /* CachedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA872DDFE25B00CAF42B /* CachedImage.swift */; };
+		AFA8CA8B2DE07A0300CAF42B /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA8A2DE07A0300CAF42B /* FavoritesView.swift */; };
+		AFA8CA8E2DE07A1B00CAF42B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA8D2DE07A1B00CAF42B /* ProfileView.swift */; };
+		AFA8CA912DE07A4900CAF42B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA902DE07A4900CAF42B /* MainTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +65,6 @@
 		AFA8C9E32DDF3A2A00CAF42B /* MoviaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA8CA372DDF43EB00CAF42B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AFA8CA392DDF43EB00CAF42B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AFA8CA3A2DDF43EB00CAF42B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AFA8CA3B2DDF43EB00CAF42B /* MoviaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviaApp.swift; sourceTree = "<group>"; };
 		AFA8CA462DDF446000CAF42B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AFA8CA482DDF446E00CAF42B /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
@@ -92,6 +93,9 @@
 		AFA8CA802DDFD77900CAF42B /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		AFA8CA852DDFE23200CAF42B /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		AFA8CA872DDFE25B00CAF42B /* CachedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImage.swift; sourceTree = "<group>"; };
+		AFA8CA8A2DE07A0300CAF42B /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		AFA8CA8D2DE07A1B00CAF42B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		AFA8CA902DE07A4900CAF42B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -173,7 +177,6 @@
 				AFA8CA422DDF440000CAF42B /* ViewModels */,
 				AFA8CA432DDF440B00CAF42B /* Components */,
 				AFA8CA392DDF43EB00CAF42B /* Assets.xcassets */,
-				AFA8CA3A2DDF43EB00CAF42B /* ContentView.swift */,
 				AFA8CA3B2DDF43EB00CAF42B /* MoviaApp.swift */,
 			);
 			path = Movia;
@@ -182,6 +185,9 @@
 		AFA8CA412DDF43EF00CAF42B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AFA8CA8F2DE07A3F00CAF42B /* MainTab */,
+				AFA8CA8C2DE07A1100CAF42B /* Profile */,
+				AFA8CA892DE079F800CAF42B /* Favorites */,
 				AFA8CA7D2DDFC63800CAF42B /* Home */,
 				AFA8CA5D2DDF610600CAF42B /* Register */,
 				AFA8CA452DDF444F00CAF42B /* Login */,
@@ -308,6 +314,30 @@
 				AFA8CA852DDFE23200CAF42B /* ImageCache.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		AFA8CA892DE079F800CAF42B /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CA8A2DE07A0300CAF42B /* FavoritesView.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		AFA8CA8C2DE07A1100CAF42B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CA8D2DE07A1B00CAF42B /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		AFA8CA8F2DE07A3F00CAF42B /* MainTab */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CA902DE07A4900CAF42B /* MainTabView.swift */,
+			);
+			path = MainTab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -456,6 +486,7 @@
 				AFA8CA472DDF446000CAF42B /* LoginView.swift in Sources */,
 				AFA8CA4E2DDF449400CAF42B /* RegisterViewModel.swift in Sources */,
 				AFA8CA6E2DDF83B000CAF42B /* RegisterRequest.swift in Sources */,
+				AFA8CA912DE07A4900CAF42B /* MainTabView.swift in Sources */,
 				AFA8CA7C2DDFC62100CAF42B /* HomeViewModel.swift in Sources */,
 				AFA8CA772DDFC5DC00CAF42B /* Movie.swift in Sources */,
 				AFA8CA6C2DDF83A000CAF42B /* LoginRequest.swift in Sources */,
@@ -468,11 +499,12 @@
 				AFA8CA812DDFD77900CAF42B /* MovieDetailView.swift in Sources */,
 				AFA8CA492DDF446E00CAF42B /* RegisterView.swift in Sources */,
 				AFA8CA582DDF4C1800CAF42B /* EmailRulesView.swift in Sources */,
-				AFA8CA3D2DDF43EB00CAF42B /* ContentView.swift in Sources */,
 				AFA8CA7F2DDFC64100CAF42B /* HomeView.swift in Sources */,
 				AFA8CA642DDF73EF00CAF42B /* NetworkError.swift in Sources */,
+				AFA8CA8E2DE07A1B00CAF42B /* ProfileView.swift in Sources */,
 				AFA8CA732DDF85E400CAF42B /* Strings.swift in Sources */,
 				AFA8CA662DDF73FD00CAF42B /* NetworkService.swift in Sources */,
+				AFA8CA8B2DE07A0300CAF42B /* FavoritesView.swift in Sources */,
 				AFA8CA752DDF85FF00CAF42B /* IconNames.swift in Sources */,
 				AFA8CA522DDF44B300CAF42B /* User.swift in Sources */,
 				AFA8CA5B2DDF5F6500CAF42B /* View+Ext.swift in Sources */,
