@@ -40,6 +40,7 @@
 		AFA8CA8B2DE07A0300CAF42B /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA8A2DE07A0300CAF42B /* FavoritesView.swift */; };
 		AFA8CA8E2DE07A1B00CAF42B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA8D2DE07A1B00CAF42B /* ProfileView.swift */; };
 		AFA8CA912DE07A4900CAF42B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA902DE07A4900CAF42B /* MainTabView.swift */; };
+		AFA8CA932DE080B600CAF42B /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA922DE080B600CAF42B /* LoginResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		AFA8CA8A2DE07A0300CAF42B /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		AFA8CA8D2DE07A1B00CAF42B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		AFA8CA902DE07A4900CAF42B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		AFA8CA922DE080B600CAF42B /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -218,11 +220,12 @@
 		AFA8CA442DDF441700CAF42B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AFA8CA762DDFC5DC00CAF42B /* Movie.swift */,
 				AFA8CA512DDF44B300CAF42B /* User.swift */,
+				AFA8CA6D2DDF83B000CAF42B /* RegisterRequest.swift */,
 				AFA8CA692DDF838400CAF42B /* AuthResponse.swift */,
 				AFA8CA6B2DDF83A000CAF42B /* LoginRequest.swift */,
-				AFA8CA6D2DDF83B000CAF42B /* RegisterRequest.swift */,
-				AFA8CA762DDFC5DC00CAF42B /* Movie.swift */,
+				AFA8CA922DE080B600CAF42B /* LoginResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				AFA8CA732DDF85E400CAF42B /* Strings.swift in Sources */,
 				AFA8CA662DDF73FD00CAF42B /* NetworkService.swift in Sources */,
 				AFA8CA8B2DE07A0300CAF42B /* FavoritesView.swift in Sources */,
+				AFA8CA932DE080B600CAF42B /* LoginResponse.swift in Sources */,
 				AFA8CA752DDF85FF00CAF42B /* IconNames.swift in Sources */,
 				AFA8CA522DDF44B300CAF42B /* User.swift in Sources */,
 				AFA8CA5B2DDF5F6500CAF42B /* View+Ext.swift in Sources */,

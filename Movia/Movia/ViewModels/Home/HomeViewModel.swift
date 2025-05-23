@@ -26,20 +26,16 @@ class HomeViewModel: ObservableObject {
         isLoading = true
         errorMessage = nil
         
-        do {
-            let result = await withCheckedContinuation { continuation in
-                movieService.fetchMovies { result in
-                    continuation.resume(returning: result)
-                }
+        let result = await withCheckedContinuation { continuation in
+            movieService.fetchMovies { result in
+                continuation.resume(returning: result)
             }
-            
-            switch result {
-            case .success(let movies):
-                self.movies = movies
-            case .failure(let error):
-                self.errorMessage = error.localizedDescription
-            }
-        } catch {
+        }
+        
+        switch result {
+        case .success(let movies):
+            self.movies = movies
+        case .failure(let error):
             self.errorMessage = error.localizedDescription
         }
         
