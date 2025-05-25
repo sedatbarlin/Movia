@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-class HomeViewModel: ObservableObject {
+class HomeViewModel: ObservableObject{
     @Published private(set) var state = HomeState()
     
     private let movieService: MovieServiceProtocol
@@ -17,6 +17,7 @@ class HomeViewModel: ObservableObject {
         self.movieService = movieService
         Task {
             await fetchMovies()
+            await fetchLikedMovies()
         }
     }
     
@@ -39,4 +40,49 @@ class HomeViewModel: ObservableObject {
         
         state.isLoading = false
     }
+    
+    func fetchLikedMovies() async {
+        let result = await withCheckedContinuation { continuation in
+            movieService.fetchLikedMovies { result in
+                continuation.resume(returning: result)
+            }
+        }
+        
+        switch result {
+        case .success(let likedMovieIds):
+            state.likedMovies = Set(likedMovieIds)
+        case .failure(let error):
+            print("Failed to fetch liked movies: \(error.localizedDescription)")
+        }
+    }
+    
+    func isMovieLiked(_ movie: Movie) -> Bool {
+        state.likedMovies.contains(movie.id)
+    }
+    
+    func unlikeMovie(_ movie: Movie) async {
+        let result = await withCheckedContinuation { continuation in
+            movieService.unlikeMovie(id: movie.id) { result in
+                continuation.resume(returning: result)
+            }
+        }
+        
+        switch result {
+        case .success(let response):
+            state.likedMovies = Set(response.likedMovies)
+            didUnlikeMovie(movie.id)
+        case .failure(let error):
+            print("Failed to unlike movie: \(error.localizedDescription)")
+        }
+    }
 } 
+
+extension HomeViewModel: MovieLikeDelegate {
+    func didUpdateLikedMovies(_ likedMovies: Set<Int>) {
+        state.likedMovies = likedMovies
+    }
+    
+    func didUnlikeMovie(_ movieId: Int) {
+        state.likedMovies.remove(movieId)
+    }
+}

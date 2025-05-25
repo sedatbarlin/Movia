@@ -16,7 +16,7 @@ struct ProfileView: View {
     
     var body: some View {
         VStack(spacing: 24) {
-            Image(systemName: "person.circle.fill")
+            Image(systemName: IconNames.personCircle)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 100, height: 100)
@@ -24,9 +24,9 @@ struct ProfileView: View {
                 .padding(.top, 32)
             
             VStack(spacing: 16) {
-                ProfileInfoRow(title: "Name", value: userName)
-                ProfileInfoRow(title: "Surname", value: userSurname)
-                ProfileInfoRow(title: "Email", value: userEmail)
+                ProfileInfoRow(title: Strings.name, value: userName)
+                ProfileInfoRow(title: Strings.surname, value: userSurname)
+                ProfileInfoRow(title: Strings.email, value: userEmail)
             }
             .padding(.horizontal)
             
@@ -34,8 +34,8 @@ struct ProfileView: View {
                 showingEditProfile = true
             }) {
                 HStack {
-                    Image(systemName: "pencil")
-                    Text("Edit Profile")
+                    Image(systemName: IconNames.pencil)
+                    Text(Strings.editProfile)
                 }
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
@@ -48,14 +48,13 @@ struct ProfileView: View {
             Spacer()
             
             Button(action: {
-                // Clear user data and logout
                 UserDefaults.standard.set(false, forKey: "isLoggedIn")
                 UserDefaults.standard.set("", forKey: "userName")
                 UserDefaults.standard.set("", forKey: "userSurname")
                 UserDefaults.standard.set("", forKey: "userEmail")
                 UserDefaults.standard.set("", forKey: "userToken")
             }) {
-                Text("Logout")
+                Text(Strings.logout)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
                     .padding()
@@ -64,7 +63,7 @@ struct ProfileView: View {
             }
             .padding()
         }
-        .navigationTitle("Profile")
+        .navigationTitle(Strings.profile)
         .sheet(isPresented: $showingEditProfile) {
             EditProfileView()
         }

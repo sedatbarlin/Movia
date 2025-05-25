@@ -19,17 +19,17 @@ enum NetworkError: Error, LocalizedError {
     var errorDescription: String? {
         switch self {
         case .invalidURL:
-            return "Geçersiz URL"
+            return Strings.invalidURL
         case .requestFailed(let error):
-            return "İstek başarısız oldu: \(error.localizedDescription)"
+            return "\(Strings.requestFailed): \(error.localizedDescription)"
         case .invalidResponse:
-            return "Geçersiz sunucu yanıtı"
+            return Strings.invalidResponse
         case .decodingError(let error):
-            return "JSON çözme hatası: \(error.localizedDescription)"
+            return "\(Strings.decodingError): \(error.localizedDescription)"
         case .serverError(let statusCode):
-            return "Sunucu hatası: \(statusCode)"
+            return "\(Strings.serverError): \(statusCode)"
         case .unknown:
-            return "Bilinmeyen bir hata oluştu"
+            return Strings.unknownError
         case .custom(let message):
             return message
         }

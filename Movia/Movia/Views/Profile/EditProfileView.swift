@@ -16,15 +16,15 @@ struct EditProfileView: View {
         NavigationStack {
             Form {
                 Section {
-                    TextField("Name", text: Binding(
+                    TextField(Strings.name, text: Binding(
                         get: { viewModel.state.name },
                         set: { viewModel.updateName($0) }
                     ))
-                    TextField("Surname", text: Binding(
+                    TextField(Strings.surname, text: Binding(
                         get: { viewModel.state.surname },
                         set: { viewModel.updateSurname($0) }
                     ))
-                    TextField("Email", text: Binding(
+                    TextField(Strings.email, text: Binding(
                         get: { viewModel.state.email },
                         set: { viewModel.updateEmail($0) }
                     ))
@@ -35,12 +35,12 @@ struct EditProfileView: View {
                 Section {
                     HStack {
                         if isPasswordVisible {
-                            TextField("New Password", text: Binding(
+                            TextField(Strings.newPassword, text: Binding(
                                 get: { viewModel.state.password },
                                 set: { viewModel.updatePassword($0) }
                             ))
                         } else {
-                            SecureField("New Password", text: Binding(
+                            SecureField(Strings.newPassword, text: Binding(
                                 get: { viewModel.state.password },
                                 set: { viewModel.updatePassword($0) }
                             ))
@@ -49,14 +49,14 @@ struct EditProfileView: View {
                         Button(action: {
                             isPasswordVisible.toggle()
                         }) {
-                            Image(systemName: isPasswordVisible ? "eye.slash.fill" : "eye.fill")
+                            Image(systemName: isPasswordVisible ? IconNames.eyeSlash : IconNames.eyeFill)
                                 .foregroundColor(.gray)
                         }
                     }
                 } header: {
-                    Text("Password")
+                    Text(Strings.password)
                 } footer: {
-                    Text("Leave empty if you don't want to change")
+                    Text(Strings.leaveEmpty)
                 }
                 
                 if let error = viewModel.state.errorMessage {
@@ -66,17 +66,17 @@ struct EditProfileView: View {
                     }
                 }
             }
-            .navigationTitle("Edit Profile")
+            .navigationTitle(Strings.editProfile)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
+                    Button(Strings.cancel) {
                         dismiss()
                     }
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Save") {
+                    Button(Strings.save) {
                         viewModel.updateProfile()
                     }
                     .disabled(viewModel.state.isLoading)

@@ -26,14 +26,16 @@ class AuthService: AuthServiceProtocol {
             return
         }
 
-        let headers = ["Content-Type": "application/json"]
+        let headers: [HTTPHeader.Key: String] = [.contentType: HTTPHeader.Value.applicationJSON.rawValue]
         networkService.request(
-            endpoint: "/api/auth/login",
-            method: "POST",
+            endpoint: APIConstants.Endpoints.login,
+            method: .post,
             body: body,
-            headers: headers,
-            completion: completion
-        )
+            headers: headers
+        ) { [weak self] result in
+            guard self != nil else { return }
+            completion(result)
+        }
     }
 
     func register(request: RegisterRequest, completion: @escaping (Result<AuthResponse, NetworkError>) -> Void) {
@@ -42,14 +44,16 @@ class AuthService: AuthServiceProtocol {
             return
         }
 
-        let headers = ["Content-Type": "application/json"]
+        let headers: [HTTPHeader.Key: String] = [.contentType: HTTPHeader.Value.applicationJSON.rawValue]
         networkService.request(
-            endpoint: "/api/auth/register",
-            method: "POST",
+            endpoint: APIConstants.Endpoints.register,
+            method: .post,
             body: body,
-            headers: headers,
-            completion: completion
-        )
+            headers: headers
+        ) { [weak self] result in
+            guard self != nil else { return }
+            completion(result)
+        }
     }
     
     func updateProfile(request: ProfileUpdateRequest, completion: @escaping (Result<ProfileUpdateResponse, NetworkError>) -> Void) {
@@ -63,15 +67,18 @@ class AuthService: AuthServiceProtocol {
             return
         }
         
-        var headers = ["Authorization": "Bearer \(token)"]
-        headers["Content-Type"] = "application/json"
+        var headers: [HTTPHeader.Key: String] = [:]
+        headers[.authorization] = HTTPHeader.Value.bearer(token)
+        headers[.contentType] = HTTPHeader.Value.applicationJSON.rawValue
         
         networkService.request(
-            endpoint: "/api/users/profile",
-            method: "PUT",
+            endpoint: APIConstants.Endpoints.updateProfile,
+            method: .put,
             body: body,
-            headers: headers,
-            completion: completion
-        )
+            headers: headers
+        ) { [weak self] result in
+            guard self != nil else { return }
+            completion(result)
+        }
     }
 }

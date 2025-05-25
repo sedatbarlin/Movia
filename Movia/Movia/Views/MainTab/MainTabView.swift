@@ -14,21 +14,21 @@ struct MainTabView: View {
                 HomeView()
             }
             .tabItem {
-                Label("Movies", systemImage: "film")
+                Label(Strings.movies, systemImage: IconNames.film)
             }
             
             NavigationStack {
                 FavoritesView()
             }
             .tabItem {
-                Label("Favorites", systemImage: "heart.fill")
+                Label(Strings.favoritesTitle, systemImage: IconNames.heartFill)
             }
             
             NavigationStack {
                 ProfileView()
             }
             .tabItem {
-                Label("Profile", systemImage: "person.fill")
+                Label(Strings.profile, systemImage: IconNames.personFill)
             }
         }
     }

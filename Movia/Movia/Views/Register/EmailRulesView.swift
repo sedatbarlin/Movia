@@ -12,8 +12,8 @@ struct EmailValidationView: View {
 
     private var rules: [(String, Bool)] {
         return [
-            ("Boşluk içermemeli", !email.contains(" ")),
-            ("@ işareti içermeli", email.contains("@"))
+            (Strings.noGaps, !email.contains(" ")),
+            (Strings.mustCompain, email.contains("@"))
         ]
     }
 

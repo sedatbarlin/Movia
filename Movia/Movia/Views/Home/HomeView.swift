@@ -33,7 +33,11 @@ struct HomeView: View {
                     LazyVStack(spacing: 0) {
                         ForEach(viewModel.state.movies) { movie in
                             VStack(spacing: 0) {
-                                NavigationLink(destination: MovieDetailView(movie: movie)) {
+                                NavigationLink(destination: MovieDetailView(
+                                    movie: movie,
+                                    isLiked: viewModel.isMovieLiked(movie),
+                                    likeDelegate: viewModel
+                                )) {
                                     MovieRowView(movie: movie)
                                         .contentShape(Rectangle())
                                 }
@@ -65,7 +69,7 @@ struct MovieRowView: View {
                 Text(movie.title)
                     .font(.headline)
                     .lineLimit(2)
-                Text("\(Strings.year): \(movie.year)")
+                Text("\(Strings.year): \(String(format: "%d", movie.year))")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                 Text(movie.category)

@@ -47,6 +47,13 @@
 		AFA8CA9C2DE0880A00CAF42B /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA9B2DE0880A00CAF42B /* EditProfileView.swift */; };
 		AFA8CA9E2DE08B8300CAF42B /* EditProfileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA9D2DE08B8300CAF42B /* EditProfileState.swift */; };
 		AFA8CAA02DE08D4000CAF42B /* HomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA9F2DE08D4000CAF42B /* HomeState.swift */; };
+		AFA8CAA22DE38F6800CAF42B /* LikeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAA12DE38F6800CAF42B /* LikeResponse.swift */; };
+		AFA8CAA52DE38F9D00CAF42B /* MovieLikeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAA42DE38F9D00CAF42B /* MovieLikeDelegate.swift */; };
+		AFA8CAA82DE3902300CAF42B /* MovieDetailState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAA72DE3902300CAF42B /* MovieDetailState.swift */; };
+		AFA8CAAA2DE3903F00CAF42B /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAA92DE3903F00CAF42B /* MovieDetailViewModel.swift */; };
+		AFA8CAAC2DE3A3F900CAF42B /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAAB2DE3A3F900CAF42B /* HTTPMethod.swift */; };
+		AFA8CAAE2DE3A40B00CAF42B /* HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAAD2DE3A40B00CAF42B /* HTTPHeader.swift */; };
+		AFA8CAB02DE3A6B100CAF42B /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAAF2DE3A6B100CAF42B /* APIConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +117,13 @@
 		AFA8CA9B2DE0880A00CAF42B /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		AFA8CA9D2DE08B8300CAF42B /* EditProfileState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileState.swift; sourceTree = "<group>"; };
 		AFA8CA9F2DE08D4000CAF42B /* HomeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeState.swift; sourceTree = "<group>"; };
+		AFA8CAA12DE38F6800CAF42B /* LikeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeResponse.swift; sourceTree = "<group>"; };
+		AFA8CAA42DE38F9D00CAF42B /* MovieLikeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLikeDelegate.swift; sourceTree = "<group>"; };
+		AFA8CAA72DE3902300CAF42B /* MovieDetailState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailState.swift; sourceTree = "<group>"; };
+		AFA8CAA92DE3903F00CAF42B /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
+		AFA8CAAB2DE3A3F900CAF42B /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		AFA8CAAD2DE3A40B00CAF42B /* HTTPHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeader.swift; sourceTree = "<group>"; };
+		AFA8CAAF2DE3A6B100CAF42B /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -185,6 +199,7 @@
 				AFA8CA622DDF73D000CAF42B /* Network */,
 				AFA8CA592DDF5F4A00CAF42B /* Extensions */,
 				AFA8CA442DDF441700CAF42B /* Models */,
+				AFA8CAA32DE38F8E00CAF42B /* Protocols */,
 				AFA8CA6F2DDF857E00CAF42B /* Enum */,
 				AFA8CA842DDFE22000CAF42B /* Utils */,
 				AFA8CA412DDF43EF00CAF42B /* Views */,
@@ -212,6 +227,7 @@
 		AFA8CA422DDF440000CAF42B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				AFA8CAA62DE3901600CAF42B /* MovieDetail */,
 				AFA8CA982DE087E200CAF42B /* Profile */,
 				AFA8CA7A2DDFC61700CAF42B /* Home */,
 				AFA8CA5C2DDF60ED00CAF42B /* Register */,
@@ -241,6 +257,7 @@
 				AFA8CA922DE080B600CAF42B /* LoginResponse.swift */,
 				AFA8CA942DE0879700CAF42B /* ProfileUpdateRequest.swift */,
 				AFA8CA962DE087B400CAF42B /* ProfileUpdateResponse.swift */,
+				AFA8CAA12DE38F6800CAF42B /* LikeResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -305,6 +322,9 @@
 			children = (
 				AFA8CA722DDF85E400CAF42B /* Strings.swift */,
 				AFA8CA742DDF85FF00CAF42B /* IconNames.swift */,
+				AFA8CAAB2DE3A3F900CAF42B /* HTTPMethod.swift */,
+				AFA8CAAD2DE3A40B00CAF42B /* HTTPHeader.swift */,
+				AFA8CAAF2DE3A6B100CAF42B /* APIConstants.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -367,6 +387,23 @@
 				AFA8CA9D2DE08B8300CAF42B /* EditProfileState.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		AFA8CAA32DE38F8E00CAF42B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CAA42DE38F9D00CAF42B /* MovieLikeDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		AFA8CAA62DE3901600CAF42B /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CAA72DE3902300CAF42B /* MovieDetailState.swift */,
+				AFA8CAA92DE3903F00CAF42B /* MovieDetailViewModel.swift */,
+			);
+			path = MovieDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -514,19 +551,24 @@
 			files = (
 				AFA8CA472DDF446000CAF42B /* LoginView.swift in Sources */,
 				AFA8CA4E2DDF449400CAF42B /* RegisterViewModel.swift in Sources */,
+				AFA8CAA52DE38F9D00CAF42B /* MovieLikeDelegate.swift in Sources */,
 				AFA8CA6E2DDF83B000CAF42B /* RegisterRequest.swift in Sources */,
 				AFA8CA912DE07A4900CAF42B /* MainTabView.swift in Sources */,
 				AFA8CA7C2DDFC62100CAF42B /* HomeViewModel.swift in Sources */,
 				AFA8CA772DDFC5DC00CAF42B /* Movie.swift in Sources */,
+				AFA8CAA22DE38F6800CAF42B /* LikeResponse.swift in Sources */,
+				AFA8CAAE2DE3A40B00CAF42B /* HTTPHeader.swift in Sources */,
 				AFA8CA6C2DDF83A000CAF42B /* LoginRequest.swift in Sources */,
 				AFA8CA542DDF471E00CAF42B /* MainButton.swift in Sources */,
 				AFA8CA792DDFC5FB00CAF42B /* MovieService.swift in Sources */,
+				AFA8CAA82DE3902300CAF42B /* MovieDetailState.swift in Sources */,
 				AFA8CA562DDF4B4100CAF42B /* PasswordRulesView.swift in Sources */,
 				AFA8CA6A2DDF838400CAF42B /* AuthResponse.swift in Sources */,
 				AFA8CA612DDF614200CAF42B /* RegisterState.swift in Sources */,
 				AFA8CA5F2DDF613100CAF42B /* LoginState.swift in Sources */,
 				AFA8CA812DDFD77900CAF42B /* MovieDetailView.swift in Sources */,
 				AFA8CA492DDF446E00CAF42B /* RegisterView.swift in Sources */,
+				AFA8CAAC2DE3A3F900CAF42B /* HTTPMethod.swift in Sources */,
 				AFA8CA582DDF4C1800CAF42B /* EmailRulesView.swift in Sources */,
 				AFA8CA7F2DDFC64100CAF42B /* HomeView.swift in Sources */,
 				AFA8CA642DDF73EF00CAF42B /* NetworkError.swift in Sources */,
@@ -535,6 +577,7 @@
 				AFA8CA8E2DE07A1B00CAF42B /* ProfileView.swift in Sources */,
 				AFA8CA732DDF85E400CAF42B /* Strings.swift in Sources */,
 				AFA8CA662DDF73FD00CAF42B /* NetworkService.swift in Sources */,
+				AFA8CAAA2DE3903F00CAF42B /* MovieDetailViewModel.swift in Sources */,
 				AFA8CA972DE087B400CAF42B /* ProfileUpdateResponse.swift in Sources */,
 				AFA8CA8B2DE07A0300CAF42B /* FavoritesView.swift in Sources */,
 				AFA8CA932DE080B600CAF42B /* LoginResponse.swift in Sources */,
@@ -547,6 +590,7 @@
 				AFA8CA952DE0879700CAF42B /* ProfileUpdateRequest.swift in Sources */,
 				AFA8CA502DDF44A600CAF42B /* InputTextField.swift in Sources */,
 				AFA8CA862DDFE23200CAF42B /* ImageCache.swift in Sources */,
+				AFA8CAB02DE3A6B100CAF42B /* APIConstants.swift in Sources */,
 				AFA8CA9A2DE087EE00CAF42B /* EditProfileViewModel.swift in Sources */,
 				AFA8CA3E2DDF43EB00CAF42B /* MoviaApp.swift in Sources */,
 				AFA8CA882DDFE25B00CAF42B /* CachedImage.swift in Sources */,

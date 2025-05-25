@@ -17,6 +17,8 @@ enum Strings {
     
     static let loginTitle = "Login"
     static let registerTitle = "Register"
+    static let noGaps = "There should be no gaps"
+    static let mustCompain = "must contain @ sign"
     
     static let atLeastOneBig = "At least 1 capital letter"
     static let atLeastOneFigure = "At least 1 digit"
@@ -29,4 +31,24 @@ enum Strings {
     static let imdb = "IMDB"
     static let actors = "Actors"
     static let description = "Description"
+    
+    static let favoritesTitle = "Favorites"
+    static let noFavorite = "No favorite movies yet"
+    static let remove = "Remove"
+    static let trash = "trash"
+    
+    static let profile = "Profile"
+    static let editProfile = "Edit Profile"
+    static let logout = "Logout"
+    static let newPassword = "New Password"
+    static let leaveEmpty = "Leave empty if you don't want to change"
+    static let cancel = "Cancel"
+    static let save = "Save"
+    
+    static let invalidURL = "Invalid URL"
+    static let requestFailed = "Request Failed"
+    static let invalidResponse = "Invalid Response"
+    static let decodingError = "Decoding Error"
+    static let serverError = "Server Error"
+    static let unknownError = "Unknown Error"
 }

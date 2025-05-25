@@ -10,15 +10,21 @@ import Foundation
 protocol NetworkServiceProtocol {
     func request<T: Decodable>(
         endpoint: String,
-        method: String,
+        method: HTTPMethod,
         body: Data?,
-        headers: [String: String]?,
+        headers: [HTTPHeader.Key: String]?,
         completion: @escaping (Result<T, NetworkError>) -> Void
     )
 }
 
 class NetworkService: NetworkServiceProtocol {
-    private let baseURL = URL(string: "https://moviatask.cerasus.app")!
+    private let baseURL: URL?
+    private let session: URLSession
+    
+    init(session: URLSession = .shared) {
+        self.baseURL = URL(string: APIConstants.baseURL)
+        self.session = session
+    }
     
     struct ErrorResponse: Codable {
         let message: String?
@@ -26,26 +32,29 @@ class NetworkService: NetworkServiceProtocol {
     
     func request<T: Decodable>(
         endpoint: String,
-        method: String,
+        method: HTTPMethod,
         body: Data?,
-        headers: [String: String]? = nil,
+        headers: [HTTPHeader.Key: String]? = nil,
         completion: @escaping (Result<T, NetworkError>) -> Void
     ) {
-        guard let url = URL(string: endpoint, relativeTo: baseURL) else {
+        guard let baseURL = baseURL,
+              let url = URL(string: endpoint, relativeTo: baseURL) else {
             completion(.failure(.invalidURL))
             return
         }
 
         var request = URLRequest(url: url)
-        request.httpMethod = method
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = method.rawValue
+        request.setValue(HTTPHeader.Value.applicationJSON.rawValue, forHTTPHeaderField: HTTPHeader.Key.contentType.rawValue)
         request.httpBody = body
         
         headers?.forEach { key, value in
-            request.setValue(value, forHTTPHeaderField: key)
+            request.setValue(value, forHTTPHeaderField: key.rawValue)
         }
 
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { [weak self] data, response, error in
+            guard let self = self else { return }
+            
             DispatchQueue.main.async {
                 if let error = error {
                     completion(.failure(.requestFailed(error)))
@@ -80,6 +89,7 @@ class NetworkService: NetworkServiceProtocol {
                     completion(.failure(.decodingError(error)))
                 }
             }
-        }.resume()
+        }
+        task.resume()
     }
 }

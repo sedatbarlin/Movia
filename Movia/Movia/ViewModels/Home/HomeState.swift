@@ -9,6 +9,7 @@ import Foundation
 
 struct HomeState {
     var movies: [Movie] = []
+    var likedMovies: Set<Int> = []
     var isLoading: Bool = false
     var errorMessage: String? = nil
 } 

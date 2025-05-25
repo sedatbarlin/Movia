@@ -7,8 +7,11 @@
 
 import Foundation
 
-protocol MovieServiceProtocol {
+protocol MovieServiceProtocol: AnyObject {
     func fetchMovies(completion: @escaping (Result<[Movie], NetworkError>) -> Void)
+    func likeMovie(id: Int, completion: @escaping (Result<LikeResponse, NetworkError>) -> Void)
+    func unlikeMovie(id: Int, completion: @escaping (Result<LikeResponse, NetworkError>) -> Void)
+    func fetchLikedMovies(completion: @escaping (Result<[Int], NetworkError>) -> Void)
 }
 
 class MovieService: MovieServiceProtocol {
@@ -24,15 +27,81 @@ class MovieService: MovieServiceProtocol {
             return
         }
         
-        var headers = ["Authorization": "Bearer \(token)"]
-        headers["Content-Type"] = "application/json"
+        var headers: [HTTPHeader.Key: String] = [:]
+        headers[.authorization] = HTTPHeader.Value.bearer(token)
+        headers[.contentType] = HTTPHeader.Value.applicationJSON.rawValue
         
         networkService.request(
-            endpoint: "/api/movies",
-            method: "GET",
+            endpoint: APIConstants.Endpoints.movies,
+            method: .get,
             body: nil,
-            headers: headers,
-            completion: completion
-        )
+            headers: headers
+        ) { [weak self] result in
+            guard self != nil else { return }
+            completion(result)
+        }
+    }
+    
+    func likeMovie(id: Int, completion: @escaping (Result<LikeResponse, NetworkError>) -> Void) {
+        guard let token = UserDefaults.standard.string(forKey: "userToken") else {
+            completion(.failure(.custom("Token not found")))
+            return
+        }
+        
+        var headers: [HTTPHeader.Key: String] = [:]
+        headers[.authorization] = HTTPHeader.Value.bearer(token)
+        headers[.contentType] = HTTPHeader.Value.applicationJSON.rawValue
+        
+        networkService.request(
+            endpoint: APIConstants.Endpoints.likeMovie(id: id),
+            method: .post,
+            body: nil,
+            headers: headers
+        ) { [weak self] result in
+            guard self != nil else { return }
+            completion(result)
+        }
+    }
+    
+    func unlikeMovie(id: Int, completion: @escaping (Result<LikeResponse, NetworkError>) -> Void) {
+        guard let token = UserDefaults.standard.string(forKey: "userToken") else {
+            completion(.failure(.custom("Token not found")))
+            return
+        }
+        
+        var headers: [HTTPHeader.Key: String] = [:]
+        headers[.authorization] = HTTPHeader.Value.bearer(token)
+        headers[.contentType] = HTTPHeader.Value.applicationJSON.rawValue
+        
+        networkService.request(
+            endpoint: APIConstants.Endpoints.unlikeMovie(id: id),
+            method: .post,
+            body: nil,
+            headers: headers
+        ) { [weak self] result in
+            guard self != nil else { return }
+            completion(result)
+        }
+    }
+    
+    func fetchLikedMovies(completion: @escaping (Result<[Int], NetworkError>) -> Void) {
+        guard let token = UserDefaults.standard.string(forKey: "userToken") else {
+            completion(.failure(.custom("Token not found")))
+            return
+        }
+        
+        var headers: [HTTPHeader.Key: String] = [:]
+        headers[.authorization] = HTTPHeader.Value.bearer(token)
+        headers[.contentType] = HTTPHeader.Value.applicationJSON.rawValue
+        
+        networkService.request(
+            endpoint: APIConstants.Endpoints.likedMovieIds,
+            method: .get,
+            body: nil,
+            headers: headers
+        ) { [weak self] result in
+            guard self != nil else { return }
+            completion(result)
+        }
     }
 } 
