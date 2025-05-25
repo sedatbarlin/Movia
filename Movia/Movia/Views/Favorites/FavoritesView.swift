@@ -9,6 +9,9 @@ import SwiftUI
 
 struct FavoritesView: View {
     @StateObject private var viewModel = HomeViewModel()
+    @State private var showingDeleteAlert = false
+    @State private var selectedMovie: Movie?
+    @State private var navigateToDetail = false
     
     var body: some View {
         Group {
@@ -42,34 +45,55 @@ struct FavoritesView: View {
                     }
                     .navigationTitle(Strings.favoritesTitle)
                 } else {
-                    List(favoriteMovies) { movie in
-                        ZStack {
-                            MovieRowView(movie: movie)
-                                .contentShape(Rectangle())
-                            
-                            NavigationLink(destination: MovieDetailView(
-                                movie: movie,
-                                isLiked: true,
-                                likeDelegate: viewModel
-                            )) {
-                                EmptyView()
-                            }
-                            .opacity(0)
-                        }
-                        .listRowInsets(EdgeInsets())
-                        .listRowSeparatorTint(.gray.opacity(0.3))
-                        .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-                            Button(role: .destructive) {
-                                Task {
-                                    await viewModel.unlikeMovie(movie)
+                    ScrollView {
+                        LazyVStack(spacing: 0) {
+                            ForEach(favoriteMovies) { movie in
+                                FavoriteMovieRow(
+                                    movie: movie,
+                                    onTap: {
+                                        selectedMovie = movie
+                                        navigateToDetail = true
+                                    },
+                                    onDelete: {
+                                        selectedMovie = movie
+                                        showingDeleteAlert = true
+                                    }
+                                )
+                                
+                                if movie.id != favoriteMovies.last?.id {
+                                    Divider()
+                                        .padding(.leading, 92)
                                 }
-                            } label: {
-                                Label(Strings.remove, systemImage: Strings.trash)
                             }
                         }
                     }
-                    .listStyle(.plain)
                     .navigationTitle(Strings.favoritesTitle)
+                    .navigationDestination(isPresented: $navigateToDetail) {
+                        if let movie = selectedMovie {
+                            MovieDetailView(
+                                movie: movie,
+                                isLiked: true,
+                                likeDelegate: viewModel
+                            )
+                        }
+                    }
+                    .alert("Remove from Favorites", isPresented: $showingDeleteAlert) {
+                        Button("Cancel", role: .cancel) {
+                            selectedMovie = nil
+                        }
+                        Button("Remove", role: .destructive) {
+                            if let movie = selectedMovie {
+                                Task {
+                                    await viewModel.unlikeMovie(movie)
+                                }
+                            }
+                            selectedMovie = nil
+                        }
+                    } message: {
+                        if let movie = selectedMovie {
+                            Text("Are you sure you want to remove '\(movie.title)' from your favorites?")
+                        }
+                    }
                 }
             }
         }
@@ -79,4 +103,4 @@ struct FavoritesView: View {
             }
         }
     }
-} 
+}

@@ -13,6 +13,7 @@ class MovieDetailViewModel: ObservableObject {
     
     private let movieService: MovieServiceProtocol
     private weak var likeDelegate: MovieLikeDelegate?
+    private let alertManager = AlertManager.shared
     
     init(movie: Movie, isLiked: Bool, movieService: MovieServiceProtocol = MovieService(), likeDelegate: MovieLikeDelegate?) {
         self.state = MovieDetailState(movie: movie, isLiked: isLiked)
@@ -26,8 +27,10 @@ class MovieDetailViewModel: ObservableObject {
         state.isLoading = true
         state.errorMessage = nil
         
+        let wasLiked = state.isLiked
+        
         let result = await withCheckedContinuation { continuation in
-            if state.isLiked {
+            if wasLiked {
                 movieService.unlikeMovie(id: state.movie.id) { result in
                     continuation.resume(returning: result)
                 }
@@ -38,14 +41,23 @@ class MovieDetailViewModel: ObservableObject {
             }
         }
         
+        state.isLoading = false
+        
         switch result {
         case .success(let response):
-            state.isLiked = response.likedMovies.contains(state.movie.id)
-            likeDelegate?.didUpdateLikedMovies(Set(response.likedMovies))
+            if !wasLiked {
+                alertManager.showMovieLiked(state.movie.title)
+            } else {
+                alertManager.showMovieUnliked(state.movie.title)
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.state.isLiked = response.likedMovies.contains(self.state.movie.id)
+                self.likeDelegate?.didUpdateLikedMovies(Set(response.likedMovies))
+            }
+            
         case .failure(let error):
             state.errorMessage = error.localizedDescription
         }
-        
-        state.isLoading = false
     }
 }

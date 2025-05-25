@@ -13,6 +13,7 @@ struct ProfileView: View {
     @AppStorage("userEmail") private var userEmail: String = ""
     @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
     @State private var showingEditProfile = false
+    private let alertManager = AlertManager.shared
     
     var body: some View {
         VStack(spacing: 24) {
@@ -48,11 +49,13 @@ struct ProfileView: View {
             Spacer()
             
             Button(action: {
-                UserDefaults.standard.set(false, forKey: "isLoggedIn")
-                UserDefaults.standard.set("", forKey: "userName")
-                UserDefaults.standard.set("", forKey: "userSurname")
-                UserDefaults.standard.set("", forKey: "userEmail")
-                UserDefaults.standard.set("", forKey: "userToken")
+                alertManager.showLogoutAlert {
+                    UserDefaults.standard.set(false, forKey: "isLoggedIn")
+                    UserDefaults.standard.set("", forKey: "userName")
+                    UserDefaults.standard.set("", forKey: "userSurname")
+                    UserDefaults.standard.set("", forKey: "userEmail")
+                    UserDefaults.standard.set("", forKey: "userToken")
+                }
             }) {
                 Text(Strings.logout)
                     .foregroundColor(.white)
@@ -67,6 +70,7 @@ struct ProfileView: View {
         .sheet(isPresented: $showingEditProfile) {
             EditProfileView()
         }
+        .withAlertManager()
     }
 }
 

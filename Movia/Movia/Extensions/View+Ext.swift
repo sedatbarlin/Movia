@@ -17,3 +17,9 @@ extension View {
         }
     }
 }
+
+extension View {
+    func withAlertManager() -> some View {
+        self.modifier(AlertManagerModifier())
+    }
+}

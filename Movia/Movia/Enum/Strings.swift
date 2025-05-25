@@ -44,6 +44,7 @@ enum Strings {
     static let leaveEmpty = "Leave empty if you don't want to change"
     static let cancel = "Cancel"
     static let save = "Save"
+    static let ok = "OK"
     
     static let invalidURL = "Invalid URL"
     static let requestFailed = "Request Failed"
@@ -51,4 +52,15 @@ enum Strings {
     static let decodingError = "Decoding Error"
     static let serverError = "Server Error"
     static let unknownError = "Unknown Error"
+    
+    static let loginFailed = "Login Failed"
+    static let success = "Success"
+    static let successRegister = "Your account has been created successfully. Please login."
+    static let movieLiked = "Added to Favorites"
+    static let movieLikedDesc = "has been added to your favorites."
+    static let movieUnliked = "Removed from Favorites"
+    static let movieUnlikedDesc = "has been removed from your favorites."
+    static let profileUpdated = "Profile Updated"
+    static let profileUpdatedDesc = "Your profile has been updated successfully."
+    static let logoutDesc = "Are you sure you want to logout?"
 }

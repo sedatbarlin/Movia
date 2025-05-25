@@ -54,6 +54,11 @@
 		AFA8CAAC2DE3A3F900CAF42B /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAAB2DE3A3F900CAF42B /* HTTPMethod.swift */; };
 		AFA8CAAE2DE3A40B00CAF42B /* HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAAD2DE3A40B00CAF42B /* HTTPHeader.swift */; };
 		AFA8CAB02DE3A6B100CAF42B /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAAF2DE3A6B100CAF42B /* APIConstants.swift */; };
+		AFA8CAB32DE3AF2A00CAF42B /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAB22DE3AF2A00CAF42B /* AlertManager.swift */; };
+		AFA8CAB62DE3B5F600CAF42B /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAB52DE3B5F600CAF42B /* AlertType.swift */; };
+		AFA8CAB82DE3B60900CAF42B /* AlertState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAB72DE3B60900CAF42B /* AlertState.swift */; };
+		AFA8CABA2DE3B8A500CAF42B /* AlertManagerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAB92DE3B8A500CAF42B /* AlertManagerModifier.swift */; };
+		AFA8CABC2DE3B93400CAF42B /* FavoriteMovieRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CABB2DE3B93400CAF42B /* FavoriteMovieRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +129,11 @@
 		AFA8CAAB2DE3A3F900CAF42B /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		AFA8CAAD2DE3A40B00CAF42B /* HTTPHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeader.swift; sourceTree = "<group>"; };
 		AFA8CAAF2DE3A6B100CAF42B /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		AFA8CAB22DE3AF2A00CAF42B /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		AFA8CAB52DE3B5F600CAF42B /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
+		AFA8CAB72DE3B60900CAF42B /* AlertState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertState.swift; sourceTree = "<group>"; };
+		AFA8CAB92DE3B8A500CAF42B /* AlertManagerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManagerModifier.swift; sourceTree = "<group>"; };
+		AFA8CABB2DE3B93400CAF42B /* FavoriteMovieRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -200,6 +210,7 @@
 				AFA8CA592DDF5F4A00CAF42B /* Extensions */,
 				AFA8CA442DDF441700CAF42B /* Models */,
 				AFA8CAA32DE38F8E00CAF42B /* Protocols */,
+				AFA8CAB12DE3AF0C00CAF42B /* Managers */,
 				AFA8CA6F2DDF857E00CAF42B /* Enum */,
 				AFA8CA842DDFE22000CAF42B /* Utils */,
 				AFA8CA412DDF43EF00CAF42B /* Views */,
@@ -359,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				AFA8CA8A2DE07A0300CAF42B /* FavoritesView.swift */,
+				AFA8CABB2DE3B93400CAF42B /* FavoriteMovieRow.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -404,6 +416,25 @@
 				AFA8CAA92DE3903F00CAF42B /* MovieDetailViewModel.swift */,
 			);
 			path = MovieDetail;
+			sourceTree = "<group>";
+		};
+		AFA8CAB12DE3AF0C00CAF42B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CAB42DE3B5E700CAF42B /* Alert */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		AFA8CAB42DE3B5E700CAF42B /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CAB22DE3AF2A00CAF42B /* AlertManager.swift */,
+				AFA8CAB52DE3B5F600CAF42B /* AlertType.swift */,
+				AFA8CAB72DE3B60900CAF42B /* AlertState.swift */,
+				AFA8CAB92DE3B8A500CAF42B /* AlertManagerModifier.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -553,8 +584,10 @@
 				AFA8CA4E2DDF449400CAF42B /* RegisterViewModel.swift in Sources */,
 				AFA8CAA52DE38F9D00CAF42B /* MovieLikeDelegate.swift in Sources */,
 				AFA8CA6E2DDF83B000CAF42B /* RegisterRequest.swift in Sources */,
+				AFA8CAB82DE3B60900CAF42B /* AlertState.swift in Sources */,
 				AFA8CA912DE07A4900CAF42B /* MainTabView.swift in Sources */,
 				AFA8CA7C2DDFC62100CAF42B /* HomeViewModel.swift in Sources */,
+				AFA8CAB32DE3AF2A00CAF42B /* AlertManager.swift in Sources */,
 				AFA8CA772DDFC5DC00CAF42B /* Movie.swift in Sources */,
 				AFA8CAA22DE38F6800CAF42B /* LikeResponse.swift in Sources */,
 				AFA8CAAE2DE3A40B00CAF42B /* HTTPHeader.swift in Sources */,
@@ -577,9 +610,12 @@
 				AFA8CA8E2DE07A1B00CAF42B /* ProfileView.swift in Sources */,
 				AFA8CA732DDF85E400CAF42B /* Strings.swift in Sources */,
 				AFA8CA662DDF73FD00CAF42B /* NetworkService.swift in Sources */,
+				AFA8CABA2DE3B8A500CAF42B /* AlertManagerModifier.swift in Sources */,
 				AFA8CAAA2DE3903F00CAF42B /* MovieDetailViewModel.swift in Sources */,
 				AFA8CA972DE087B400CAF42B /* ProfileUpdateResponse.swift in Sources */,
+				AFA8CAB62DE3B5F600CAF42B /* AlertType.swift in Sources */,
 				AFA8CA8B2DE07A0300CAF42B /* FavoritesView.swift in Sources */,
+				AFA8CABC2DE3B93400CAF42B /* FavoriteMovieRow.swift in Sources */,
 				AFA8CA932DE080B600CAF42B /* LoginResponse.swift in Sources */,
 				AFA8CA752DDF85FF00CAF42B /* IconNames.swift in Sources */,
 				AFA8CA522DDF44B300CAF42B /* User.swift in Sources */,

@@ -8,12 +8,15 @@
 import Combine
 import Foundation
 
+@MainActor
 class RegisterViewModel: ObservableObject {
     @Published private(set) var state = RegisterState()
     @Published var isFormValid: Bool = false
+    @Published var shouldNavigateToLogin = false
 
     private var cancellables = Set<AnyCancellable>()
     private let authService: AuthServiceProtocol
+    private let alertManager = AlertManager.shared
 
     init(authService: AuthServiceProtocol = AuthService()) {
         self.authService = authService
@@ -42,15 +45,24 @@ class RegisterViewModel: ObservableObject {
             password: state.password
         )
         authService.register(request: request) { [weak self] result in
-            self?.state.isLoading = false
-            switch result {
-            case .success(let response):
-                print("Register message: \(response.message ?? "")")
-                print("Register success: user=\(response.user), token=\(response.token ?? "")")
-            case .failure(let error):
-                print("Register failed: \(error.localizedDescription)")
-                if case let .custom(message) = error {
-                    print("Register error message: \(message)")
+            guard let self = self else { return }
+            
+            Task { @MainActor in
+                self.state.isLoading = false
+                switch result {
+                case .success:
+                    self.alertManager.showRegistrationSuccess()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.shouldNavigateToLogin = true
+                    }
+                    
+                case .failure(let error):
+                    if case let .custom(message) = error {
+                        self.alertManager.showLoginError(message)
+                    } else {
+                        self.alertManager.showLoginError(error.localizedDescription)
+                    }
                 }
             }
         }

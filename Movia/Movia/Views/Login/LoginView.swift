@@ -62,6 +62,7 @@ struct LoginView: View {
             .navigationDestination(isPresented: $shouldNavigate) {
                 MainTabView()
             }
+            .withAlertManager()
         }
     }
 }

@@ -28,6 +28,7 @@ class NetworkService: NetworkServiceProtocol {
     
     struct ErrorResponse: Codable {
         let message: String?
+        let error: String?
     }
     
     func request<T: Decodable>(
@@ -53,7 +54,7 @@ class NetworkService: NetworkServiceProtocol {
         }
 
         let task = session.dataTask(with: request) { [weak self] data, response, error in
-            guard let self = self else { return }
+            guard self != nil else { return }
             
             DispatchQueue.main.async {
                 if let error = error {
@@ -68,10 +69,14 @@ class NetworkService: NetworkServiceProtocol {
 
                 guard (200...299).contains(httpResponse.statusCode) else {
                     if let data = data,
-                       let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data),
-                       let message = errorResponse.message {
-                        completion(.failure(.custom(message)))
-                        return
+                       let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
+                        if let message = errorResponse.message {
+                            completion(.failure(.custom(message)))
+                            return
+                        } else if let error = errorResponse.error {
+                            completion(.failure(.custom(error)))
+                            return
+                        }
                     }
                     completion(.failure(.serverError(statusCode: httpResponse.statusCode)))
                     return

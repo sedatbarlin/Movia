@@ -60,7 +60,12 @@ class HomeViewModel: ObservableObject{
         state.likedMovies.contains(movie.id)
     }
     
-    func unlikeMovie(_ movie: Movie) async {
+    func unlikeMovie(_ movie: Movie) async -> Bool {
+        guard !state.isLoading else { return false }
+        
+        state.isLoading = true
+        defer { state.isLoading = false }
+        
         let result = await withCheckedContinuation { continuation in
             movieService.unlikeMovie(id: movie.id) { result in
                 continuation.resume(returning: result)
@@ -71,8 +76,10 @@ class HomeViewModel: ObservableObject{
         case .success(let response):
             state.likedMovies = Set(response.likedMovies)
             didUnlikeMovie(movie.id)
+            return true
         case .failure(let error):
             print("Failed to unlike movie: \(error.localizedDescription)")
+            return false
         }
     }
 } 

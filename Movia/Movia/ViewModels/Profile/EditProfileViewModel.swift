@@ -7,10 +7,12 @@
 
 import Foundation
 
+@MainActor
 class EditProfileViewModel: ObservableObject {
     @Published private(set) var state: EditProfileState
     
     private let authService: AuthServiceProtocol
+    private let alertManager = AlertManager.shared
     
     init(authService: AuthServiceProtocol = AuthService()) {
         self.authService = authService
@@ -49,18 +51,24 @@ class EditProfileViewModel: ObservableObject {
         )
         
         authService.updateProfile(request: request) { [weak self] result in
-            DispatchQueue.main.async {
-                guard let self = self else { return }
-                
+            guard let self = self else { return }
+            
+            Task { @MainActor in
                 self.state.isLoading = false
                 switch result {
                 case .success(let response):
                     UserDefaults.standard.set(response.user.name, forKey: "userName")
                     UserDefaults.standard.set(response.user.surname, forKey: "userSurname")
                     UserDefaults.standard.set(response.user.email, forKey: "userEmail")
+                    self.alertManager.showProfileUpdateSuccess()
                     self.state.isSuccess = true
                 case .failure(let error):
                     self.state.errorMessage = error.localizedDescription
+                    if case let .custom(message) = error {
+                        self.alertManager.showLoginError(message)
+                    } else {
+                        self.alertManager.showLoginError(error.localizedDescription)
+                    }
                 }
             }
         }

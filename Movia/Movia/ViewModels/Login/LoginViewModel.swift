@@ -8,12 +8,14 @@
 import Combine
 import Foundation
 
+@MainActor
 class LoginViewModel: ObservableObject {
     @Published private(set) var state = LoginState()
     @Published var isFormValid: Bool = false
 
     private var cancellables = Set<AnyCancellable>()
     private let authService: AuthServiceProtocol
+    private let alertManager = AlertManager.shared
 
     init(authService: AuthServiceProtocol = AuthService()) {
         self.authService = authService
@@ -37,18 +39,23 @@ class LoginViewModel: ObservableObject {
             password: state.password
         )
         authService.login(request: request) { [weak self] result in
-            self?.state.isLoading = false
-            switch result {
-            case .success(let response):
-                UserDefaults.standard.set(true, forKey: "isLoggedIn")
-                UserDefaults.standard.set(response.user.name, forKey: "userName")
-                UserDefaults.standard.set(response.user.surname, forKey: "userSurname")
-                UserDefaults.standard.set(response.user.email, forKey: "userEmail")
-                UserDefaults.standard.set(response.token, forKey: "userToken")
-            case .failure(let error):
-                print("Login failed: \(error.localizedDescription)")
-                if case let .custom(message) = error {
-                    print("Login error message: \(message)")
+            guard let self = self else { return }
+            
+            Task { @MainActor in
+                self.state.isLoading = false
+                switch result {
+                case .success(let response):
+                    UserDefaults.standard.set(true, forKey: "isLoggedIn")
+                    UserDefaults.standard.set(response.user.name, forKey: "userName")
+                    UserDefaults.standard.set(response.user.surname, forKey: "userSurname")
+                    UserDefaults.standard.set(response.user.email, forKey: "userEmail")
+                    UserDefaults.standard.set(response.token, forKey: "userToken")
+                case .failure(let error):
+                    if case let .custom(message) = error {
+                        self.alertManager.showLoginError(message)
+                    } else {
+                        self.alertManager.showLoginError(error.localizedDescription)
+                    }
                 }
             }
         }

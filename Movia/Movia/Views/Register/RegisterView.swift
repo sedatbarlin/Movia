@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RegisterView: View {
     @StateObject private var viewModel = RegisterViewModel()
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         VStack(spacing: 16) {
@@ -65,5 +66,11 @@ struct RegisterView: View {
         .padding()
         .navigationTitle(Strings.registerTitle)
         .hideKeyboardOnTap()
+        .withAlertManager()
+        .onChange(of: viewModel.shouldNavigateToLogin) { _, shouldNavigate in
+            if shouldNavigate {
+                dismiss()
+            }
+        }
     }
 }

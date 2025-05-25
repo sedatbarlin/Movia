@@ -75,5 +75,6 @@ struct MovieDetailView: View {
                 .disabled(viewModel.state.isLoading)
             }
         }
+        .withAlertManager()
     }
 }
