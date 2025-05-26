@@ -15,6 +15,7 @@
 | Decomposition of all request and Response models | Alert management for UX |
 | Enums | Writing all string values in the application as Enum |
 | State Management | Creating content that is used more than once in the application as a Component. |
+| Keychain Manager, Token Validator | Storing sensitive data in Keychain offers a much more secure approach than UserDefaults. |
 
 ## 📸 Screenshots
 
