@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @AppStorage("userName") private var userName: String = ""
-    @AppStorage("userSurname") private var userSurname: String = ""
-    @AppStorage("userEmail") private var userEmail: String = ""
     @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
     @State private var showingEditProfile = false
+    @StateObject private var viewModel = ProfileViewModel()
     private let alertManager = AlertManager.shared
     
     var body: some View {
@@ -25,9 +23,9 @@ struct ProfileView: View {
                 .padding(.top, 32)
             
             VStack(spacing: 16) {
-                ProfileInfoRow(title: Strings.name, value: userName)
-                ProfileInfoRow(title: Strings.surname, value: userSurname)
-                ProfileInfoRow(title: Strings.email, value: userEmail)
+                ProfileInfoRow(title: Strings.name, value: viewModel.user?.name ?? "")
+                ProfileInfoRow(title: Strings.surname, value: viewModel.user?.surname ?? "")
+                ProfileInfoRow(title: Strings.email, value: viewModel.user?.email ?? "")
             }
             .padding(.horizontal)
             
@@ -50,11 +48,7 @@ struct ProfileView: View {
             
             Button(action: {
                 alertManager.showLogoutAlert {
-                    UserDefaults.standard.set(false, forKey: "isLoggedIn")
-                    UserDefaults.standard.set("", forKey: "userName")
-                    UserDefaults.standard.set("", forKey: "userSurname")
-                    UserDefaults.standard.set("", forKey: "userEmail")
-                    UserDefaults.standard.set("", forKey: "userToken")
+                    viewModel.logout()
                 }
             }) {
                 Text(Strings.logout)
@@ -71,6 +65,9 @@ struct ProfileView: View {
             EditProfileView()
         }
         .withAlertManager()
+        .onAppear {
+            viewModel.loadUserData()
+        }
     }
 }
 

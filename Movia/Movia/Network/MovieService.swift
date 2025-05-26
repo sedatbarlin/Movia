@@ -9,14 +9,17 @@ import Foundation
 
 class MovieService: MovieServiceProtocol {
     private let networkService: NetworkServiceProtocol
+    private let keychainManager = KeychainManager.shared
+    private let tokenValidator = TokenValidator.shared
     
     init(networkService: NetworkServiceProtocol = NetworkService()) {
         self.networkService = networkService
     }
     
     func fetchMovies(completion: @escaping (Result<[Movie], NetworkError>) -> Void) {
-        guard let token = UserDefaults.standard.string(forKey: "userToken") else {
-            completion(.failure(.custom("Token not found")))
+        guard tokenValidator.validateToken(),
+              let token = keychainManager.getToken() else {
+            completion(.failure(.custom("Token not found or invalid")))
             return
         }
         
@@ -36,8 +39,9 @@ class MovieService: MovieServiceProtocol {
     }
     
     func likeMovie(id: Int, completion: @escaping (Result<LikeResponse, NetworkError>) -> Void) {
-        guard let token = UserDefaults.standard.string(forKey: "userToken") else {
-            completion(.failure(.custom("Token not found")))
+        guard tokenValidator.validateToken(),
+              let token = keychainManager.getToken() else {
+            completion(.failure(.custom("Token not found or invalid")))
             return
         }
         
@@ -57,8 +61,9 @@ class MovieService: MovieServiceProtocol {
     }
     
     func unlikeMovie(id: Int, completion: @escaping (Result<LikeResponse, NetworkError>) -> Void) {
-        guard let token = UserDefaults.standard.string(forKey: "userToken") else {
-            completion(.failure(.custom("Token not found")))
+        guard tokenValidator.validateToken(),
+              let token = keychainManager.getToken() else {
+            completion(.failure(.custom("Token not found or invalid")))
             return
         }
         
@@ -78,8 +83,9 @@ class MovieService: MovieServiceProtocol {
     }
     
     func fetchLikedMovies(completion: @escaping (Result<[Int], NetworkError>) -> Void) {
-        guard let token = UserDefaults.standard.string(forKey: "userToken") else {
-            completion(.failure(.custom("Token not found")))
+        guard tokenValidator.validateToken(),
+              let token = keychainManager.getToken() else {
+            completion(.failure(.custom("Token not found or invalid")))
             return
         }
         

@@ -63,6 +63,10 @@
 		AFA8CAC02DE47ACC00CAF42B /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CABF2DE47ACC00CAF42B /* ErrorResponse.swift */; };
 		AFA8CAC22DE47AF800CAF42B /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAC12DE47AF800CAF42B /* AuthServiceProtocol.swift */; };
 		AFA8CAC42DE47B1E00CAF42B /* MovieServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAC32DE47B1E00CAF42B /* MovieServiceProtocol.swift */; };
+		AFA8CAC72DE48F9600CAF42B /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAC62DE48F9600CAF42B /* KeychainManager.swift */; };
+		AFA8CAC92DE48FBB00CAF42B /* TokenValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAC82DE48FBB00CAF42B /* TokenValidator.swift */; };
+		AFA8CACB2DE48FD600CAF42B /* KeychainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CACA2DE48FD600CAF42B /* KeychainError.swift */; };
+		AFA8CACD2DE4905500CAF42B /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CACC2DE4905500CAF42B /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +146,10 @@
 		AFA8CABF2DE47ACC00CAF42B /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		AFA8CAC12DE47AF800CAF42B /* AuthServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceProtocol.swift; sourceTree = "<group>"; };
 		AFA8CAC32DE47B1E00CAF42B /* MovieServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceProtocol.swift; sourceTree = "<group>"; };
+		AFA8CAC62DE48F9600CAF42B /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		AFA8CAC82DE48FBB00CAF42B /* TokenValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenValidator.swift; sourceTree = "<group>"; };
+		AFA8CACA2DE48FD600CAF42B /* KeychainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainError.swift; sourceTree = "<group>"; };
+		AFA8CACC2DE4905500CAF42B /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -345,6 +353,7 @@
 				AFA8CAAB2DE3A3F900CAF42B /* HTTPMethod.swift */,
 				AFA8CAAD2DE3A40B00CAF42B /* HTTPHeader.swift */,
 				AFA8CAAF2DE3A6B100CAF42B /* APIConstants.swift */,
+				AFA8CACA2DE48FD600CAF42B /* KeychainError.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -406,6 +415,7 @@
 			children = (
 				AFA8CA992DE087EE00CAF42B /* EditProfileViewModel.swift */,
 				AFA8CA9D2DE08B8300CAF42B /* EditProfileState.swift */,
+				AFA8CACC2DE4905500CAF42B /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -433,6 +443,7 @@
 		AFA8CAB12DE3AF0C00CAF42B /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				AFA8CAC52DE48F8800CAF42B /* Keychain */,
 				AFA8CAB42DE3B5E700CAF42B /* Alert */,
 			);
 			path = Managers;
@@ -447,6 +458,15 @@
 				AFA8CAB92DE3B8A500CAF42B /* AlertManagerModifier.swift */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		AFA8CAC52DE48F8800CAF42B /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8CAC62DE48F9600CAF42B /* KeychainManager.swift */,
+				AFA8CAC82DE48FBB00CAF42B /* TokenValidator.swift */,
+			);
+			path = Keychain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -593,6 +613,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFA8CA472DDF446000CAF42B /* LoginView.swift in Sources */,
+				AFA8CACB2DE48FD600CAF42B /* KeychainError.swift in Sources */,
+				AFA8CACD2DE4905500CAF42B /* ProfileViewModel.swift in Sources */,
 				AFA8CA4E2DDF449400CAF42B /* RegisterViewModel.swift in Sources */,
 				AFA8CAA52DE38F9D00CAF42B /* MovieLikeProtocol.swift in Sources */,
 				AFA8CA6E2DDF83B000CAF42B /* RegisterRequest.swift in Sources */,
@@ -614,6 +636,7 @@
 				AFA8CA812DDFD77900CAF42B /* MovieDetailView.swift in Sources */,
 				AFA8CAC22DE47AF800CAF42B /* AuthServiceProtocol.swift in Sources */,
 				AFA8CA492DDF446E00CAF42B /* RegisterView.swift in Sources */,
+				AFA8CAC92DE48FBB00CAF42B /* TokenValidator.swift in Sources */,
 				AFA8CAAC2DE3A3F900CAF42B /* HTTPMethod.swift in Sources */,
 				AFA8CA582DDF4C1800CAF42B /* EmailRulesView.swift in Sources */,
 				AFA8CA7F2DDFC64100CAF42B /* HomeView.swift in Sources */,
@@ -631,6 +654,7 @@
 				AFA8CABC2DE3B93400CAF42B /* FavoriteMovieRow.swift in Sources */,
 				AFA8CA932DE080B600CAF42B /* LoginResponse.swift in Sources */,
 				AFA8CA752DDF85FF00CAF42B /* IconNames.swift in Sources */,
+				AFA8CAC72DE48F9600CAF42B /* KeychainManager.swift in Sources */,
 				AFA8CABE2DE47A9900CAF42B /* NetworkServiceProtocol.swift in Sources */,
 				AFA8CA522DDF44B300CAF42B /* User.swift in Sources */,
 				AFA8CA5B2DDF5F6500CAF42B /* View+Ext.swift in Sources */,

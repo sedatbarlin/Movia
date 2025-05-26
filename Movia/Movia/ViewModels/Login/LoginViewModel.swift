@@ -16,6 +16,7 @@ class LoginViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     private let authService: AuthServiceProtocol
     private let alertManager = AlertManager.shared
+    private let keychainManager = KeychainManager.shared
 
     init(authService: AuthServiceProtocol = AuthService()) {
         self.authService = authService
@@ -45,11 +46,13 @@ class LoginViewModel: ObservableObject {
                 self.state.isLoading = false
                 switch result {
                 case .success(let response):
-                    UserDefaults.standard.set(true, forKey: "isLoggedIn")
-                    UserDefaults.standard.set(response.user.name, forKey: "userName")
-                    UserDefaults.standard.set(response.user.surname, forKey: "userSurname")
-                    UserDefaults.standard.set(response.user.email, forKey: "userEmail")
-                    UserDefaults.standard.set(response.token, forKey: "userToken")
+                    if let token = response.token {
+                        self.keychainManager.saveToken(token)
+                        self.keychainManager.saveUser(response.user)
+                        UserDefaults.standard.set(true, forKey: "isLoggedIn")
+                    } else {
+                        self.alertManager.showLoginError("Token not received")
+                    }
                 case .failure(let error):
                     if case let .custom(message) = error {
                         self.alertManager.showLoginError(message)
