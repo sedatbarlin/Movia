@@ -48,7 +48,7 @@
 		AFA8CA9E2DE08B8300CAF42B /* EditProfileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA9D2DE08B8300CAF42B /* EditProfileState.swift */; };
 		AFA8CAA02DE08D4000CAF42B /* HomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CA9F2DE08D4000CAF42B /* HomeState.swift */; };
 		AFA8CAA22DE38F6800CAF42B /* LikeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAA12DE38F6800CAF42B /* LikeResponse.swift */; };
-		AFA8CAA52DE38F9D00CAF42B /* MovieLikeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAA42DE38F9D00CAF42B /* MovieLikeDelegate.swift */; };
+		AFA8CAA52DE38F9D00CAF42B /* MovieLikeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAA42DE38F9D00CAF42B /* MovieLikeProtocol.swift */; };
 		AFA8CAA82DE3902300CAF42B /* MovieDetailState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAA72DE3902300CAF42B /* MovieDetailState.swift */; };
 		AFA8CAAA2DE3903F00CAF42B /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAA92DE3903F00CAF42B /* MovieDetailViewModel.swift */; };
 		AFA8CAAC2DE3A3F900CAF42B /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAAB2DE3A3F900CAF42B /* HTTPMethod.swift */; };
@@ -59,6 +59,10 @@
 		AFA8CAB82DE3B60900CAF42B /* AlertState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAB72DE3B60900CAF42B /* AlertState.swift */; };
 		AFA8CABA2DE3B8A500CAF42B /* AlertManagerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAB92DE3B8A500CAF42B /* AlertManagerModifier.swift */; };
 		AFA8CABC2DE3B93400CAF42B /* FavoriteMovieRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CABB2DE3B93400CAF42B /* FavoriteMovieRow.swift */; };
+		AFA8CABE2DE47A9900CAF42B /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CABD2DE47A9900CAF42B /* NetworkServiceProtocol.swift */; };
+		AFA8CAC02DE47ACC00CAF42B /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CABF2DE47ACC00CAF42B /* ErrorResponse.swift */; };
+		AFA8CAC22DE47AF800CAF42B /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAC12DE47AF800CAF42B /* AuthServiceProtocol.swift */; };
+		AFA8CAC42DE47B1E00CAF42B /* MovieServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8CAC32DE47B1E00CAF42B /* MovieServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,7 +127,7 @@
 		AFA8CA9D2DE08B8300CAF42B /* EditProfileState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileState.swift; sourceTree = "<group>"; };
 		AFA8CA9F2DE08D4000CAF42B /* HomeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeState.swift; sourceTree = "<group>"; };
 		AFA8CAA12DE38F6800CAF42B /* LikeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeResponse.swift; sourceTree = "<group>"; };
-		AFA8CAA42DE38F9D00CAF42B /* MovieLikeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLikeDelegate.swift; sourceTree = "<group>"; };
+		AFA8CAA42DE38F9D00CAF42B /* MovieLikeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLikeProtocol.swift; sourceTree = "<group>"; };
 		AFA8CAA72DE3902300CAF42B /* MovieDetailState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailState.swift; sourceTree = "<group>"; };
 		AFA8CAA92DE3903F00CAF42B /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
 		AFA8CAAB2DE3A3F900CAF42B /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -134,6 +138,10 @@
 		AFA8CAB72DE3B60900CAF42B /* AlertState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertState.swift; sourceTree = "<group>"; };
 		AFA8CAB92DE3B8A500CAF42B /* AlertManagerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManagerModifier.swift; sourceTree = "<group>"; };
 		AFA8CABB2DE3B93400CAF42B /* FavoriteMovieRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieRow.swift; sourceTree = "<group>"; };
+		AFA8CABD2DE47A9900CAF42B /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		AFA8CABF2DE47ACC00CAF42B /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		AFA8CAC12DE47AF800CAF42B /* AuthServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceProtocol.swift; sourceTree = "<group>"; };
+		AFA8CAC32DE47B1E00CAF42B /* MovieServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -269,6 +277,7 @@
 				AFA8CA942DE0879700CAF42B /* ProfileUpdateRequest.swift */,
 				AFA8CA962DE087B400CAF42B /* ProfileUpdateResponse.swift */,
 				AFA8CAA12DE38F6800CAF42B /* LikeResponse.swift */,
+				AFA8CABF2DE47ACC00CAF42B /* ErrorResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -404,7 +413,10 @@
 		AFA8CAA32DE38F8E00CAF42B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				AFA8CAA42DE38F9D00CAF42B /* MovieLikeDelegate.swift */,
+				AFA8CAA42DE38F9D00CAF42B /* MovieLikeProtocol.swift */,
+				AFA8CABD2DE47A9900CAF42B /* NetworkServiceProtocol.swift */,
+				AFA8CAC12DE47AF800CAF42B /* AuthServiceProtocol.swift */,
+				AFA8CAC32DE47B1E00CAF42B /* MovieServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -582,7 +594,7 @@
 			files = (
 				AFA8CA472DDF446000CAF42B /* LoginView.swift in Sources */,
 				AFA8CA4E2DDF449400CAF42B /* RegisterViewModel.swift in Sources */,
-				AFA8CAA52DE38F9D00CAF42B /* MovieLikeDelegate.swift in Sources */,
+				AFA8CAA52DE38F9D00CAF42B /* MovieLikeProtocol.swift in Sources */,
 				AFA8CA6E2DDF83B000CAF42B /* RegisterRequest.swift in Sources */,
 				AFA8CAB82DE3B60900CAF42B /* AlertState.swift in Sources */,
 				AFA8CA912DE07A4900CAF42B /* MainTabView.swift in Sources */,
@@ -600,6 +612,7 @@
 				AFA8CA612DDF614200CAF42B /* RegisterState.swift in Sources */,
 				AFA8CA5F2DDF613100CAF42B /* LoginState.swift in Sources */,
 				AFA8CA812DDFD77900CAF42B /* MovieDetailView.swift in Sources */,
+				AFA8CAC22DE47AF800CAF42B /* AuthServiceProtocol.swift in Sources */,
 				AFA8CA492DDF446E00CAF42B /* RegisterView.swift in Sources */,
 				AFA8CAAC2DE3A3F900CAF42B /* HTTPMethod.swift in Sources */,
 				AFA8CA582DDF4C1800CAF42B /* EmailRulesView.swift in Sources */,
@@ -618,10 +631,12 @@
 				AFA8CABC2DE3B93400CAF42B /* FavoriteMovieRow.swift in Sources */,
 				AFA8CA932DE080B600CAF42B /* LoginResponse.swift in Sources */,
 				AFA8CA752DDF85FF00CAF42B /* IconNames.swift in Sources */,
+				AFA8CABE2DE47A9900CAF42B /* NetworkServiceProtocol.swift in Sources */,
 				AFA8CA522DDF44B300CAF42B /* User.swift in Sources */,
 				AFA8CA5B2DDF5F6500CAF42B /* View+Ext.swift in Sources */,
 				AFA8CA4C2DDF448B00CAF42B /* LoginViewModel.swift in Sources */,
 				AFA8CA9E2DE08B8300CAF42B /* EditProfileState.swift in Sources */,
+				AFA8CAC42DE47B1E00CAF42B /* MovieServiceProtocol.swift in Sources */,
 				AFA8CA682DDF740A00CAF42B /* AuthService.swift in Sources */,
 				AFA8CA952DE0879700CAF42B /* ProfileUpdateRequest.swift in Sources */,
 				AFA8CA502DDF44A600CAF42B /* InputTextField.swift in Sources */,
@@ -630,6 +645,7 @@
 				AFA8CA9A2DE087EE00CAF42B /* EditProfileViewModel.swift in Sources */,
 				AFA8CA3E2DDF43EB00CAF42B /* MoviaApp.swift in Sources */,
 				AFA8CA882DDFE25B00CAF42B /* CachedImage.swift in Sources */,
+				AFA8CAC02DE47ACC00CAF42B /* ErrorResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

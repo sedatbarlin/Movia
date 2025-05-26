@@ -84,7 +84,7 @@ class HomeViewModel: ObservableObject{
     }
 } 
 
-extension HomeViewModel: MovieLikeDelegate {
+extension HomeViewModel: MovieLikeProtocol {
     func didUpdateLikedMovies(_ likedMovies: Set<Int>) {
         state.likedMovies = likedMovies
     }

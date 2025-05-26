@@ -12,10 +12,10 @@ class MovieDetailViewModel: ObservableObject {
     @Published private(set) var state: MovieDetailState
     
     private let movieService: MovieServiceProtocol
-    private weak var likeDelegate: MovieLikeDelegate?
+    private weak var likeDelegate: MovieLikeProtocol?
     private let alertManager = AlertManager.shared
     
-    init(movie: Movie, isLiked: Bool, movieService: MovieServiceProtocol = MovieService(), likeDelegate: MovieLikeDelegate?) {
+    init(movie: Movie, isLiked: Bool, movieService: MovieServiceProtocol = MovieService(), likeDelegate: MovieLikeProtocol?) {
         self.state = MovieDetailState(movie: movie, isLiked: isLiked)
         self.movieService = movieService
         self.likeDelegate = likeDelegate

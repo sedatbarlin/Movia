@@ -7,16 +7,6 @@
 
 import Foundation
 
-protocol NetworkServiceProtocol {
-    func request<T: Decodable>(
-        endpoint: String,
-        method: HTTPMethod,
-        body: Data?,
-        headers: [HTTPHeader.Key: String]?,
-        completion: @escaping (Result<T, NetworkError>) -> Void
-    )
-}
-
 class NetworkService: NetworkServiceProtocol {
     private let baseURL: URL?
     private let session: URLSession
@@ -24,11 +14,6 @@ class NetworkService: NetworkServiceProtocol {
     init(session: URLSession = .shared) {
         self.baseURL = URL(string: APIConstants.baseURL)
         self.session = session
-    }
-    
-    struct ErrorResponse: Codable {
-        let message: String?
-        let error: String?
     }
     
     func request<T: Decodable>(

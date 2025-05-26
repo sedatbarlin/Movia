@@ -7,13 +7,6 @@
 
 import Foundation
 
-protocol MovieServiceProtocol: AnyObject {
-    func fetchMovies(completion: @escaping (Result<[Movie], NetworkError>) -> Void)
-    func likeMovie(id: Int, completion: @escaping (Result<LikeResponse, NetworkError>) -> Void)
-    func unlikeMovie(id: Int, completion: @escaping (Result<LikeResponse, NetworkError>) -> Void)
-    func fetchLikedMovies(completion: @escaping (Result<[Int], NetworkError>) -> Void)
-}
-
 class MovieService: MovieServiceProtocol {
     private let networkService: NetworkServiceProtocol
     

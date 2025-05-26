@@ -7,12 +7,6 @@
 
 import Foundation
 
-protocol AuthServiceProtocol {
-    func login(request: LoginRequest, completion: @escaping (Result<AuthResponse, NetworkError>) -> Void)
-    func register(request: RegisterRequest, completion: @escaping (Result<AuthResponse, NetworkError>) -> Void)
-    func updateProfile(request: ProfileUpdateRequest, completion: @escaping (Result<ProfileUpdateResponse, NetworkError>) -> Void)
-}
-
 class AuthService: AuthServiceProtocol {
     private let networkService: NetworkServiceProtocol
 

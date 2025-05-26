@@ -10,7 +10,7 @@ import SwiftUI
 struct MovieDetailView: View {
     @StateObject private var viewModel: MovieDetailViewModel
     
-    init(movie: Movie, isLiked: Bool, likeDelegate: MovieLikeDelegate?) {
+    init(movie: Movie, isLiked: Bool, likeDelegate: MovieLikeProtocol?) {
         _viewModel = StateObject(wrappedValue: MovieDetailViewModel(
             movie: movie,
             isLiked: isLiked,
