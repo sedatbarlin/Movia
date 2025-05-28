@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct MoviaApp: App {
-    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
+    @AppStorage(Strings.UDisLoggedIn) private var isLoggedIn: Bool = false
     var body: some Scene {
         WindowGroup {
             if isLoggedIn {

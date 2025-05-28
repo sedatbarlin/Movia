@@ -12,7 +12,7 @@ class KeychainManager {
     static let shared = KeychainManager()
     private init() {}
     
-    private let service = "com.movia.app"
+    private let service = Strings.keychainService
     
     func save(_ data: Data, key: String) throws {
         let query: [String: Any] = [
@@ -89,31 +89,31 @@ class KeychainManager {
     // MARK: - Token Management
     func saveToken(_ token: String) {
         guard let data = token.data(using: .utf8) else { return }
-        try? save(data, key: "userToken")
+        try? save(data, key: Strings.userToken)
     }
     
     func getToken() -> String? {
-        guard let data = try? retrieve(key: "userToken") else { return nil }
+        guard let data = try? retrieve(key: Strings.userToken) else { return nil }
         return String(data: data, encoding: .utf8)
     }
     
     func deleteToken() {
-        try? delete(key: "userToken")
+        try? delete(key: Strings.userToken)
     }
     
     // MARK: - User Data Management
     func saveUser(_ user: User) {
         guard let data = try? JSONEncoder().encode(user) else { return }
-        try? save(data, key: "userData")
+        try? save(data, key: Strings.userData)
     }
     
     func getUser() -> User? {
-        guard let data = try? retrieve(key: "userData"),
+        guard let data = try? retrieve(key: Strings.userData),
               let user = try? JSONDecoder().decode(User.self, from: data) else { return nil }
         return user
     }
     
     func deleteUser() {
-        try? delete(key: "userData")
+        try? delete(key: Strings.userData)
     }
 }

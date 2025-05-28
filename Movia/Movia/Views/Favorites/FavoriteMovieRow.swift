@@ -20,7 +20,7 @@ struct FavoriteMovieRow: View {
             .buttonStyle(PlainButtonStyle())
             
             Button(action: onDelete) {
-                Image(systemName: "trash")
+                Image(systemName: IconNames.trash)
                     .foregroundColor(.red)
                     .padding()
             }

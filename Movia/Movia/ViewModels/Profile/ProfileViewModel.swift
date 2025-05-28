@@ -20,6 +20,6 @@ class ProfileViewModel: ObservableObject {
     func logout() {
         keychainManager.deleteToken()
         keychainManager.deleteUser()
-        UserDefaults.standard.set(false, forKey: "isLoggedIn")
+        UserDefaults.standard.set(false, forKey: Strings.UDisLoggedIn)
     }
 } 

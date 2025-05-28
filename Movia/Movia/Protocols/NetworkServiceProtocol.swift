@@ -12,7 +12,15 @@ protocol NetworkServiceProtocol {
         endpoint: String,
         method: HTTPMethod,
         body: Data?,
-        headers: [HTTPHeader.Key: String]?,
+        requiresAuth: Bool,
+        completion: @escaping (Result<T, NetworkError>) -> Void
+    )
+    
+    func request<T: Decodable, E: Encodable>(
+        endpoint: String,
+        method: HTTPMethod,
+        requestObject: E?,
+        requiresAuth: Bool,
         completion: @escaping (Result<T, NetworkError>) -> Void
     )
 }

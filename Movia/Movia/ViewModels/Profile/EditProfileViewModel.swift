@@ -17,9 +17,9 @@ class EditProfileViewModel: ObservableObject {
     init(authService: AuthServiceProtocol = AuthService()) {
         self.authService = authService
         self.state = EditProfileState(
-            name: UserDefaults.standard.string(forKey: "userName") ?? "",
-            surname: UserDefaults.standard.string(forKey: "userSurname") ?? "",
-            email: UserDefaults.standard.string(forKey: "userEmail") ?? ""
+            name: UserDefaults.standard.string(forKey: Strings.UDuserName) ?? "",
+            surname: UserDefaults.standard.string(forKey: Strings.UDuserSurname) ?? "",
+            email: UserDefaults.standard.string(forKey: Strings.UDuserEmail) ?? ""
         )
     }
     
@@ -57,9 +57,9 @@ class EditProfileViewModel: ObservableObject {
                 self.state.isLoading = false
                 switch result {
                 case .success(let response):
-                    UserDefaults.standard.set(response.user.name, forKey: "userName")
-                    UserDefaults.standard.set(response.user.surname, forKey: "userSurname")
-                    UserDefaults.standard.set(response.user.email, forKey: "userEmail")
+                    UserDefaults.standard.set(response.user.name, forKey: Strings.UDuserName)
+                    UserDefaults.standard.set(response.user.surname, forKey: Strings.UDuserSurname)
+                    UserDefaults.standard.set(response.user.email, forKey: Strings.UDuserEmail)
                     self.alertManager.showProfileUpdateSuccess()
                     self.state.isSuccess = true
                 case .failure(let error):

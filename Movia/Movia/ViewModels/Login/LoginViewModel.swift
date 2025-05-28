@@ -49,9 +49,9 @@ class LoginViewModel: ObservableObject {
                     if let token = response.token {
                         self.keychainManager.saveToken(token)
                         self.keychainManager.saveUser(response.user)
-                        UserDefaults.standard.set(true, forKey: "isLoggedIn")
+                        UserDefaults.standard.set(true, forKey: Strings.UDisLoggedIn)
                     } else {
-                        self.alertManager.showLoginError("Token not received")
+                        self.alertManager.showLoginError(Strings.tokenNotReceived)
                     }
                 case .failure(let error):
                     if case let .custom(message) = error {

@@ -21,4 +21,5 @@ enum IconNames {
     static let eyeFill = "eye.fill"
     static let film = "film"
     static let personFill = "person.fill"
+    static let trash = "trash"
 }

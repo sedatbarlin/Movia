@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
+    @AppStorage(Strings.UDisLoggedIn) private var isLoggedIn: Bool = false
     @State private var showingEditProfile = false
     @StateObject private var viewModel = ProfileViewModel()
     private let alertManager = AlertManager.shared

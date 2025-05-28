@@ -28,7 +28,7 @@ class TokenValidator {
             return false
         }
         
-        if let exp = payload["exp"] as? TimeInterval {
+        if let exp = payload[Strings.tokenExp] as? TimeInterval {
             let expirationDate = Date(timeIntervalSince1970: exp)
             if Date() >= expirationDate {
                 keychainManager.deleteToken()
@@ -62,7 +62,7 @@ class TokenValidator {
         guard components.count == 3,
               let payloadData = base64UrlDecode(components[1]),
               let payload = try? JSONSerialization.jsonObject(with: payloadData, options: []) as? [String: Any],
-              let exp = payload["exp"] as? TimeInterval else {
+              let exp = payload[Strings.tokenExp] as? TimeInterval else {
             completion(false)
             return
         }

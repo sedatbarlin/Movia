@@ -77,11 +77,11 @@ struct FavoritesView: View {
                             )
                         }
                     }
-                    .alert("Remove from Favorites", isPresented: $showingDeleteAlert) {
-                        Button("Cancel", role: .cancel) {
+                    .alert(Strings.removeFromFav, isPresented: $showingDeleteAlert) {
+                        Button(Strings.cancel, role: .cancel) {
                             selectedMovie = nil
                         }
-                        Button("Remove", role: .destructive) {
+                        Button(Strings.remove, role: .destructive) {
                             if let movie = selectedMovie {
                                 Task {
                                     await viewModel.unlikeMovie(movie)
@@ -91,7 +91,7 @@ struct FavoritesView: View {
                         }
                     } message: {
                         if let movie = selectedMovie {
-                            Text("Are you sure you want to remove '\(movie.title)' from your favorites?")
+                            Text(Strings.areYouSure + " '" + movie.title + "' " + Strings.fromYourFav)
                         }
                     }
                 }

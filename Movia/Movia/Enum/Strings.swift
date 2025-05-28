@@ -50,6 +50,7 @@ enum Strings {
     static let requestFailed = "Request Failed"
     static let invalidResponse = "Invalid Response"
     static let decodingError = "Decoding Error"
+    static let encodingError = "Encoding Error"
     static let serverError = "Server Error"
     static let unknownError = "Unknown Error"
     
@@ -63,4 +64,19 @@ enum Strings {
     static let profileUpdated = "Profile Updated"
     static let profileUpdatedDesc = "Your profile has been updated successfully."
     static let logoutDesc = "Are you sure you want to logout?"
+    
+    static let keychainService = "com.movia.app"
+    static let userToken = "userToken"
+    static let userData = "userData"
+    static let tokenExp = "exp"
+    static let tokenNotReceived = "Token not received"
+    
+    static let UDuserName = "userName"
+    static let UDuserSurname = "userSurname"
+    static let UDuserEmail = "userEmail"
+    static let UDisLoggedIn = "isLoggedIn"
+    
+    static let removeFromFav = "Remove from Favorites"
+    static let areYouSure = "Are you sure you want to remove"
+    static let fromYourFav = "from your favorites?"
 }

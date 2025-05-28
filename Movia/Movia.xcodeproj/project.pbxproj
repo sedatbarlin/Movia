@@ -413,9 +413,9 @@
 		AFA8CA982DE087E200CAF42B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				AFA8CACC2DE4905500CAF42B /* ProfileViewModel.swift */,
 				AFA8CA992DE087EE00CAF42B /* EditProfileViewModel.swift */,
 				AFA8CA9D2DE08B8300CAF42B /* EditProfileState.swift */,
-				AFA8CACC2DE4905500CAF42B /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -434,8 +434,8 @@
 		AFA8CAA62DE3901600CAF42B /* MovieDetail */ = {
 			isa = PBXGroup;
 			children = (
-				AFA8CAA72DE3902300CAF42B /* MovieDetailState.swift */,
 				AFA8CAA92DE3903F00CAF42B /* MovieDetailViewModel.swift */,
+				AFA8CAA72DE3902300CAF42B /* MovieDetailState.swift */,
 			);
 			path = MovieDetail;
 			sourceTree = "<group>";

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
-    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
+    @AppStorage(Strings.UDisLoggedIn) private var isLoggedIn: Bool = false
     @State private var shouldNavigate = false
 
     var body: some View {
