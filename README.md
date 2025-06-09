@@ -1,4 +1,4 @@
-<h1 align="center"> 🎞️ Movia App Case 🎞️ </h1>
+<h1 align="center"> 🎞️ Movia App Case - SwiftUI 🎞️ </h1>
 
 | :fire: Implemented Using | :rocket: Features |
 | --- | --- |
